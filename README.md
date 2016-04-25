@@ -1,4 +1,4 @@
-# FresherNote
+# Instant Noodle
 
 [Heroku link][heroku] **NB:** This should be a link to your production site
 
@@ -6,29 +6,32 @@
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+Instant Noodle is a web application inspired by Instagram that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
 - [ ] New account creation, login, and guest/demo login
 - [ ] Smooth, bug-free navigation
 - [ ] Adequate seed data to demonstrate the site's features
-- [ ] The minimally necessary features for an Evernote-inspired site: note creation and saving, note editing, and notes organized into notebooks
+- [ ] Minimally necessary features for an Instagram-inspired site: photo sharing, posts organized into collections, and social interaction through viewing, commenting, and liking posts.
 - [ ] Hosting on Heroku
 - [ ] CSS styling that is satisfactorily visually appealing
-- [ ] A production README, replacing this README (**NB**: check out the [sample production README](https://github.com/appacademy/sample-project-proposal/blob/master/docs/production_readme.md) -- you'll write this later)
+- [ ] A production README
 
 ## Product Goals and Priorities
 
-FresherNote will allow users to do the following:
+Instant Noodle will allow users to do the following:
 
 <!-- This is a Markdown checklist. Use it to keep track of your
 progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [ ] Create an account (MVP)
 - [ ] Log in / Log out, including as a Guest/Demo User (MVP)
-- [ ] Create, read, edit, and delete notes (MVP)
-- [ ] Organize notes within Notebooks (MVP)
-- [ ] Tag notes with multiple tags (expected feature, but not MVP)
-- [ ] Apply complex styling to notes while editing (expected feature, but not MVP)
+- [ ] Create, edit, and delete posts (MVP)
+- [ ] Organize posts into collections (MVP)
+- [ ] View, comment, and like other users' posts (MVP)
+- [ ] Edit Profile (expected feature, not MVP)
+- [ ] Optional Recipe Form (bonus feature, not MVP)
+- [ ] Upload videos (bonus feature, not MVP)
+- [ ] Geolocation (bonus feature, not MVP)
 
 ## Design Docs
 * [View Wireframes][views]
@@ -60,26 +63,26 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 **Objective:** Notes can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Note` model
+- [ ] create `Post` model
 - [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`NotesController`)
-- [ ] jBuilder views for notes
+- [ ] CRUD API for Posts (`PostsController`)
+- [ ] jBuilder views for posts
 - [ ] setup Webpack & Flux scaffold
 - [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in the console.
 
 ### Phase 3: Flux Architecture and Router (1.5 days)
 
-**Objective:** Notes can be created, read, edited and destroyed with the
+**Objective:** Posts can be created, read, edited and destroyed with the
 user interface.
 
 - [ ] setup the flux loop with skeleton files
 - [ ] setup React Router
-- implement each note component, building out the flux loop as needed.
-  - [ ] `NotesIndex`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle
+- implement each post component, building out the flux loop as needed.
+  - [ ] `PostsIndex`
+  - [ ] `PostIndexItem`
+  - [ ] `PostForm`
+- [ ] save Posts to the DB when the form loses focus or is left idle
   after editing.
 
 ### Phase 4: Start Styling (0.5 days)

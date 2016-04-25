@@ -2,12 +2,11 @@
 
 * `App`
   * `SearchIndex`
-  * `NotebooksIndex`
-    * `NotebookIndexItem`
-  * `NotebookForm`
-  * `NotesIndex`
-    * `NoteForm`
-    * `NoteIndexItem`
-  * `NoteDetail`
-    * `NoteTags`
-    * `NoteEditArea`
+  * `PostsIndex`
+    * `PostIndexItem`
+      * `Post Detail`
+      * `Comment Detail`
+        * `Comment Form` 
+  * `PostForm`
+  * `UserDetail`
+    * `UserEdit`
