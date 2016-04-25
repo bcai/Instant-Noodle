@@ -24,8 +24,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
-post_id     | integer   | not null, foreign key (references posts),
-indexed
+post_id     | integer   | not null, foreign key (references posts), indexed
 
 ## comments
 column name | data type | details
@@ -40,7 +39,6 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 followed_id | integer   | not null, foreign key (references users), indexed
-follower_id | integer   | not null, foregin key (references users),
-indexed
+follower_id | integer   | not null, foregin key (references users), indexed
 
 
