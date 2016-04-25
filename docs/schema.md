@@ -1,51 +1,47 @@
 # Schema Information
 
-## notes
+## posts
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-title       | string    | not null
-body        | text      | not null
+description | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
-notebook_id | integer   | not null, foreign key (references notebooks), indexed
-archived    | boolean   | not null, default: false
+filename    | string    | not null
+binary_data | binary    | not null
 
-## notebooks
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users), indexed
-title       | string    | not null
-description | string    | 
 
-## reminders
+## likes
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
-note_id     | string    | not null, foreign key (references notes), indexed
-date        | datetime  | not null
-type        | string    | not null
-prev_id     | integer   | foreign key (references reminders), indexed
+post_id     | integer   | not null, foreign key (references posts),
+indexed
 
-## tags
+## comments
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-name        | string    | not null
+body        | text      | not null
+user_id     | integer   | not null, foreign key (references users), indexed
+post_id     | string    | not null, foreign key (references posts), indexed
 
-## taggings
+## follows
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-name        | string    | not null
-note_id     | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
-tag_id      | integer   | not null, foreign key (references tags), indexed
+followed_id | integer   | not null, foreign key (references users),
+indexed
+follower_id | integer   | not null, foregin key (references users),
+indexed
+
 
 ## users
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 username        | string    | not null, indexed, unique
+full_name       | string    | not null
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
+post_id         | integer   | not null, foreign key (references posts), indexed
