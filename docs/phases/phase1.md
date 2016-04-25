@@ -1,9 +1,9 @@
-# Phase 1: User Authentication, Note Model and JSON API
+# Phase 1: User Authentication, Post Model and JSON API
 
 ## Rails
 ### Models
 * User
-* Note
+* Post
 
 ### Controllers
 * UsersController (create, new)

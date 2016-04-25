@@ -58,9 +58,9 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [ ] user signup/signin pages
 - [ ] blank landing page after signin
 
-### Phase 2: Notes Model, API, and basic APIUtil (1.5 days)
+### Phase 2: Posts Model, API, and basic APIUtil (1.5 days)
 
-**Objective:** Notes can be created, read, edited and destroyed through
+**Objective:** Posts can be created, read, edited and destroyed through
 the API.
 
 - [ ] create `Post` model
@@ -85,7 +85,7 @@ user interface.
 - [ ] save Posts to the DB when the form loses focus or is left idle
   after editing.
 
-### Phase 4: Start Styling (0.5 days)
+### Phase 4: Start Styling (1 days)
 
 **Objective:** Existing pages (including singup/signin) will look good.
 
@@ -93,42 +93,39 @@ user interface.
 - [ ] position elements on the page
 - [ ] add basic colors & styles
 
-### Phase 5: Notebooks (1 day)
+### Phase 5: Followers (0.5 days)
+- [ ] setup `follows` join table 
+- [ ] create relationship between user and other users
 
-**Objective:** Notes belong to Notebooks, and can be viewed by notebook.
+### Phase 6: Likes (0.5 days)
 
-- [ ] create `Notebook` model
+**Objective:** Posts can be liked by other followers.
+
+- [ ] create `Likes` model and join table
 - build out API, Flux loop, and components for:
-  - [ ] Notebook CRUD
-  - [ ] adding notes requires a notebook
-  - [ ] moving notes to a different notebook
-  - [ ] viewing notes by notebook
-- Use CSS to style new views
 
-Phase 3 adds organization to the Notes. Notes belong to a Notebook,
-which has its own `Index` view.
-
-### Phase 6: Tags (1.5 days)
-
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
-
-- [ ] create `Tag` model and join table
-- build out API, Flux loop, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
 - [ ] Style new elements
 
-### Phase 7: Allow Complex Styling in Notes (0.5 days)
+### Phase 7: Comments (1 day)
 
-**objective:** Enable complex styling of notes.
+**Objective:** Comments belong to Posts, and can be viewed in PostsIndex.
 
-- [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
+- [ ] create `Comments` model
+- build out API, Flux loop, and components for:
+  - [ ] Comment CRUD
+  - [ ] commenting requires a logged-in "follower"
+  - [ ] Comment Form is available in all posts.
+- Use CSS to style new views
 
-### Phase 8: Styling Cleanup and Seeding (1 day)
+### Phase 8: Create User Detail (1.5 days)
+
+**objective:** Enable stats for user as well as user posts to be displayed
+
+- [ ] Display counts for follows, followers, and posts
+- [ ] Create a form for editing user profile.
+- [ ] Filter posts to only display user's own posts.
+
+### Phase 9: Styling Cleanup and Seeding (1 day)
 
 **objective:** Make the site feel more cohesive and awesome.
 
@@ -137,14 +134,10 @@ which has its own `Index` view.
 - [ ] Add modals, transitions, and other styling flourishes.
 
 ### Bonus Features (TBD)
-- [ ] Search through notes for blocks of text
-- [ ] Pagination / infinite scroll for Notes Index
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
+- [ ] Optional Recipe Form
+- [ ] Upload videos
+- [ ] Geolocation
 - [ ] Multiple sessions
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
