@@ -14,7 +14,7 @@ what you'll need to do.
 
 ## Post Cycles
 
-### Postss API Request Actions
+### Posts API Request Actions
 
 * `fetchAllPosts`
   0. invoked from `PostsIndex` `didMount`/`willReceiveProps`
