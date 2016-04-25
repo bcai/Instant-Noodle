@@ -19,7 +19,7 @@
 ![user-detail]
 
 [component-hierarchy]: ./wireframes/component_hierarchy.png
-[new-user]: ./wireframes/sign_up.png
+[sign-up]: ./wireframes/sign_up.png
 [sign-in]: ./wireframes/sign_in.png
 [post-form]: ./wireframes/post_form.png
 [posts]: ./wireframes/root_posts.png
