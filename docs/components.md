@@ -5,6 +5,7 @@
   * `PostsIndex`
     * `PostIndexItem`
       * `Post Detail`
+        * `Post Edit`
       * `Comment Detail`
         * `Comment Form` 
   * `PostForm`
