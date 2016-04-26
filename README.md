@@ -102,9 +102,9 @@ user interface.
   - [ ] Comment CRUD
   - [ ] commenting requires a logged-in "follower"
   - [ ] Comment Form is available in all posts.
-- Use CSS to style new views
+- [ ] Style comment components
 
-### Phase 6: Likes (0.5 days)
+### Phase 6: Likes (1 days)
 
 **Objective:** Posts can be liked by other followers.
 
@@ -115,20 +115,16 @@ user interface.
   - [ ] Like Button is available in all posts.
 - [ ] Style new elements
 
-
-### Phase 8: Create User Detail (1.5 days)
+### Phase 7: Create User Detail/Form Components (1.5 days)
 
 **objective:** Enable stats for user as well as user posts to be displayed
 
 - [ ] Display counts for follows, followers, and posts
 - [ ] Create a form for editing user profile.
 - [ ] Filter posts to only display user's own posts.
+- [ ] CSS Styling
 
-### Phase 8: Followers (0.5 days)
-- [ ] setup `follows` join table 
-- [ ] create relationship between user and other users
-
-### Phase 9: Styling Cleanup and Seeding (1 day)
+### Phase 8: Styling Cleanup and Seeding (1 day)
 
 **objective:** Make the site feel more cohesive and presentable.
 
@@ -136,11 +132,16 @@ user interface.
 - [ ] Refactor HTML classes & CSS rules
 - [ ] Add modals, transitions, and other styling flourishes.
 
+### Phase 9: Followers (1 days)
+- [ ] setup `follows` join table 
+- [ ] create relationship between user and other users
+
+
 ### Bonus Features (TBD)
+- [ ] User Search
 - [ ] Optional Recipe Form
 - [ ] Upload videos
 - [ ] Geolocation
-- [ ] Multiple sessions
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
