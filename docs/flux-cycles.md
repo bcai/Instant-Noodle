@@ -20,42 +20,89 @@ what you'll need to do.
   0. invoked from `PostsIndex` `didMount`/`willReceiveProps`
   0. `GET /api/posts` is called.
   0. `receiveAllPosts` is set as the callback.
+  0. fetches all associated comments.
+  0. fetches all associated likes.
 
 * `createPost`
   0. invoked from new post button `onClick`
   0. `POST /api/posts` is called.
-  0. `receiveSinglePost` is set as the callback.
+  0. `receivePost` is set as the callback.
 
-* `fetchSinglePost`
+* `fetchPost`
   0. invoked from `PostDetail` `didMount`/`willReceiveProps`
   0. `GET /api/posts/:id` is called.
-  0. `receiveSinglePost` is set as the callback.
+  0. `receivePost` is set as the callback.
+  0. fetches associated comments.
+  0. fetches associated likes.
 
 * `updatePost`
   0. invoked from `PostForm` `onSubmit`
   0. `POST /api/posts` is called.
-  0. `receiveSinglePost` is set as the callback.
+  0. `receivePost` is set as the callback.
+  0. fetches associated comments.
+  0. fetches associated likes.
 
-* `deleteNote`
-  0. invoked from delete post button `onClick`
-  0. `DELETE /api/posts/:id` is called.
-  0. `removePost` is set as the callback.
-
-### Notes API Response Actions
+### Posts API Response Actions
 
 * `receiveAllPosts`
   0. invoked from an API callback.
-  0. `Post` store updates `_posts` and emits change.
+  0. `PostStore` updates `_posts` and emits change.
 
-* `receiveSinglePost`
+* `receivePost`
   0. invoked from an API callback.
-  0. `Post` store updates `_posts[id]` and emits change.
-
-* `removePost`
-  0. invoked from an API callback.
-  0. `Post` store removes `_posts[id]` and emits change.
+  0. `PostStore` updates `_posts[id]` and emits change.
 
 ### Store Listeners
 
-* `PostsIndex` component listens to `Post` store.
-* `PostDetail` component listens to `Post` store.
+* `PostsIndex` component listens to `PostStore`.
+* `PostDetail` component listens to `PostStore`.
+
+
+## Comment Cycles
+
+### Comments API Request Actions
+
+* `createComment`
+  0. invoked from `onEnter`
+  0. `POST /api/posts/:id/comments` is called.
+  0. `receivePost` is set as the callback.
+
+* `destroyComment`
+  0. invoked from 'onClick'
+  0. `DELETE /api/posts/:id/comments/:id` is called.
+  0. `removeComment` is set as the callback.
+
+### Comments API Response Actions
+
+* `removeComment`
+  0. invoked from an API callback.
+  0. `PostStore` removes `_posts[id].comments[:id]` and emits change.
+
+### Store Listeners
+
+* `CommentIndex` component listens to `PostStore`.
+
+
+## Likes Cycles
+
+###  API Request Actions
+
+* `createLike`
+  0. invoked from `onEnter`
+  0. `POST /api/posts/:id/likes` is called.
+  0. `receivePost` is set as the callback.
+
+* `destroyLike`
+  0. invoked from 'onClick'
+  0. `DELETE /api/posts/:id/comments/:id` is called.
+  0. `removeComment` is set as the callback.
+
+### Comments API Response Actions
+
+* `removeLike`
+  0. invoked from an API callback.
+  0. `PostStore` removes `_posts[id].likes[:id]` and emits change.
+
+### Store Listeners
+
+* `LikeIndex` component listens to `PostStore`.

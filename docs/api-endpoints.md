@@ -27,4 +27,15 @@
 - `POST /api/posts`
 - `GET /api/posts/:id`
 - `PATCH /api/posts/:id`
-- `DELETE /api/posts/:id`
+
+### Comments
+
+- `GET /api/posts/:id/comments`
+- `POST /api/posts/:id/comments`
+- `DELETE /api/posts/:id/comment/:id`
+
+### Likes
+
+- `GET /api/posts/:id/likes`
+- `POST /api/posts/:id/likes`
+- `DELETE /api/posts/:id/likes/:id`

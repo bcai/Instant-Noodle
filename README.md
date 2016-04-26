@@ -87,26 +87,13 @@ user interface.
 
 ### Phase 4: Start Styling (1 days)
 
-**Objective:** Existing pages (including singup/signin) will look good.
+**Objective:** Existing pages (including sign-up/sign-in) will look good.
 
 - [ ] create a basic style guide
 - [ ] position elements on the page
 - [ ] add basic colors & styles
 
-### Phase 5: Followers (0.5 days)
-- [ ] setup `follows` join table 
-- [ ] create relationship between user and other users
-
-### Phase 6: Likes (0.5 days)
-
-**Objective:** Posts can be liked by other followers.
-
-- [ ] create `Likes` model and join table
-- build out API, Flux loop, and components for:
-
-- [ ] Style new elements
-
-### Phase 7: Comments (1 day)
+### Phase 5: Comments (1 day)
 
 **Objective:** Comments belong to Posts, and can be viewed in PostsIndex.
 
@@ -117,6 +104,18 @@ user interface.
   - [ ] Comment Form is available in all posts.
 - Use CSS to style new views
 
+### Phase 6: Likes (0.5 days)
+
+**Objective:** Posts can be liked by other followers.
+
+- [ ] create `Likes` model
+- build out API, Flux loop, and components for:
+  - [ ] Like CRUD
+  - [ ] Liking a post requires a logged-in "follower"
+  - [ ] Like Button is available in all posts.
+- [ ] Style new elements
+
+
 ### Phase 8: Create User Detail (1.5 days)
 
 **objective:** Enable stats for user as well as user posts to be displayed
@@ -125,9 +124,13 @@ user interface.
 - [ ] Create a form for editing user profile.
 - [ ] Filter posts to only display user's own posts.
 
+### Phase 8: Followers (0.5 days)
+- [ ] setup `follows` join table 
+- [ ] create relationship between user and other users
+
 ### Phase 9: Styling Cleanup and Seeding (1 day)
 
-**objective:** Make the site feel more cohesive and awesome.
+**objective:** Make the site feel more cohesive and presentable.
 
 - [ ] Get feedback on my UI from others
 - [ ] Refactor HTML classes & CSS rules
