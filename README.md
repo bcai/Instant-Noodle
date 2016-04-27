@@ -2,7 +2,7 @@
 
 [Heroku link][heroku] **NB:** This should be a link to your production site
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://instant-noodle.herokuapp.com
 
 ## Minimum Viable Product
 
@@ -23,7 +23,7 @@ Instant Noodle will allow users to do the following:
 <!-- This is a Markdown checklist. Use it to keep track of your
 progress. Put an x between the brackets for a checkmark: [x] -->
 
-- [ ] Create an account (MVP)
+- [x] Create an account (MVP)
 - [ ] Log in / Log out, including as a Guest/Demo User (MVP)
 - [ ] Create, edit, and delete posts (MVP)
 - [ ] Organize posts into collections (MVP)
@@ -52,35 +52,35 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 **Objective:** Functioning rails project with Authentication
 
-- [ ] create new project
-- [ ] create `User` model
-- [ ] authentication
-- [ ] user signup/signin pages
-- [ ] blank landing page after signin
+- [x] create new project
+- [x] create `User` model
+- [x] authentication
+- [x] user signup/signin pages
+- [x] blank landing page after signin
 
 ### Phase 2: Posts Model, API, and basic APIUtil (1.5 days)
 
 **Objective:** Posts can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Post` model
-- [ ] seed the database with a small amount of test data
-- [ ] CRUD API for Posts (`PostsController`)
-- [ ] jBuilder views for posts
-- [ ] setup Webpack & Flux scaffold
-- [ ] setup `APIUtil` to interact with the API
-- [ ] test out API interaction in the console.
+- [x] create `Post` model
+- [x] seed the database with a small amount of test data
+- [x] CRUD API for Posts (`PostsController`)
+- [x] jBuilder views for posts
+- [x] setup Webpack & Flux scaffold
+- [x] setup `APIUtil` to interact with the API
+- [x] test out API interaction in the console.
 
 ### Phase 3: Flux Architecture and Router (1.5 days)
 
 **Objective:** Posts can be created, read, edited and destroyed with the
 user interface.
 
-- [ ] setup the flux loop with skeleton files
-- [ ] setup React Router
+- [x] setup the flux loop with skeleton files
+- [x] setup React Router
 - implement each post component, building out the flux loop as needed.
-  - [ ] `PostsIndex`
-  - [ ] `PostIndexItem`
+  - [x] `PostsIndex`
+  - [x] `PostIndexItem`
   - [ ] `PostForm`
 - [ ] save Posts to the DB when the form loses focus or is left idle
   after editing.

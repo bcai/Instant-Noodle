@@ -65,7 +65,7 @@ what you'll need to do.
 * `createComment`
   0. invoked from `onEnter`
   0. `POST /api/posts/:id/comments` is called.
-  0. `receivePost` is set as the callback.
+  0. `receiveComment` is set as the callback.
 
 * `destroyComment`
   0. invoked from 'onClick'
@@ -78,10 +78,6 @@ what you'll need to do.
   0. invoked from an API callback.
   0. `PostStore` removes `_posts[id].comments[:id]` and emits change.
 
-### Store Listeners
-
-* `CommentIndex` component listens to `PostStore`.
-
 
 ## Likes Cycles
 
@@ -90,19 +86,15 @@ what you'll need to do.
 * `createLike`
   0. invoked from `onEnter`
   0. `POST /api/posts/:id/likes` is called.
-  0. `receivePost` is set as the callback.
+  0. `receiveLike` is set as the callback.
 
 * `destroyLike`
   0. invoked from 'onClick'
   0. `DELETE /api/posts/:id/comments/:id` is called.
-  0. `removeComment` is set as the callback.
+  0. `removeLike` is set as the callback.
 
 ### Comments API Response Actions
 
 * `removeLike`
   0. invoked from an API callback.
   0. `PostStore` removes `_posts[id].likes[:id]` and emits change.
-
-### Store Listeners
-
-* `LikeIndex` component listens to `PostStore`.
