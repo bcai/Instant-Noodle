@@ -32479,11 +32479,6 @@
 	    return React.createElement(
 	      'li',
 	      null,
-	      React.createElement(
-	        'h3',
-	        null,
-	        post.author.username
-	      ),
 	      React.createElement('img', { src: post.image_url, height: '300', width: '300' }),
 	      React.createElement(
 	        'p',
