@@ -19,10 +19,16 @@ module.exports = React.createClass({
   render: function () {
     var post = this.props.post;
 
+    if (post.author_id === current_user.id){
+      editButton = <button onClick={this.editPost}>Edit</button>;
+    } else {
+      editButton = "";
+    }
+
     return (
       <li>
         <Link to={"/posts/" + this.props.post.id.toString()}>{post.title}</Link>&nbsp;
-        <button onClick={this.editPost}>Edit</button>&nbsp;
+        {editButton}&nbsp;
       </li>
     );
   }

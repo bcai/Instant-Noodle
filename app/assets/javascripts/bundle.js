@@ -20041,7 +20041,7 @@
 
 	var React = __webpack_require__(1);
 	var PostStore = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../stores/postStore.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-	var ClientActions = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../actions/clientActions.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var ClientActions = __webpack_require__(169);
 	var Link = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-router\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())).Link;
 	var hashHistory = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-router\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())).hashHistory;
 	
@@ -20125,7 +20125,7 @@
 
 	var React = __webpack_require__(1);
 	var PostStore = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../stores/postStore.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-	var ClientActions = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../actions/clientActions.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var ClientActions = __webpack_require__(169);
 	
 	var PostIndexItem = __webpack_require__(168);
 	var PostForm = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./postForm.jsx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
@@ -20171,7 +20171,7 @@
 
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-router\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())).Link;
-	var ClientActions = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../actions/clientActions.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var ClientActions = __webpack_require__(169);
 	var hashHistory = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-router\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())).hashHistory;
 	
 	module.exports = React.createClass({
@@ -20192,6 +20192,16 @@
 	  render: function () {
 	    var post = this.props.post;
 	
+	    if (post.author_id === current_user.id) {
+	      editButton = React.createElement(
+	        'button',
+	        { onClick: this.editPost },
+	        'Edit'
+	      );
+	    } else {
+	      editButton = "";
+	    }
+	
 	    return React.createElement(
 	      'li',
 	      null,
@@ -20201,15 +20211,35 @@
 	        post.title
 	      ),
 	      ' ',
-	      React.createElement(
-	        'button',
-	        { onClick: this.editPost },
-	        'Edit'
-	      ),
+	      editButton,
 	      ' '
 	    );
 	  }
 	});
+
+/***/ },
+/* 169 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var ApiUtil = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../util/apiUtil.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	
+	module.exports = {
+	  fetchAllPosts: function () {
+	    ApiUtil.fetchAllPosts();
+	  },
+	
+	  fetchPost: function (id) {
+	    ApiUtil.fetchPost(id);
+	  },
+	
+	  createPost: function (data) {
+	    ApiUtil.createPost(data);
+	  },
+	
+	  updatePost: function (data) {
+	    ApiUtil.updatePost(data);
+	  }
+	};
 
 /***/ }
 /******/ ]);
