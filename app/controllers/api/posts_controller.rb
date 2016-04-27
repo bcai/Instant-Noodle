@@ -1,4 +1,6 @@
 class Api::PostsController < ApplicationController
+  before_action :require_user_signed_in!
+
   def index
     @posts = Post.all
   end

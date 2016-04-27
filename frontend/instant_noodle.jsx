@@ -7,15 +7,19 @@ var IndexRoute = require('react-router').IndexRoute;
 var Link = require('react-router').Link;
 var HashHistory = require('react-router').hashHistory;
 
-var PostIndex = require('./components/post_index.jsx'),
+var ClientActions = require('./actions/client_actions.js');
+    PostIndex = require('./components/post_index.jsx'),
     // PostShow = require('./components/postShow.jsx'),
     PostEdit = require('./components/post_edit.jsx');
 
 var App = React.createClass({
-  render: function () {
+  render: function() {
     return (
       <div id="main">
-        <h1>Instant Noodle</h1>
+        <div id="nav">
+          <h1>Instant Noodle</h1>
+          <button onClick={ClientActions.destroySession}>Sign out</button>
+        </div>
         <div id="postIndex">
           <PostIndex />
         </div>
@@ -37,10 +41,12 @@ var routes = (
 document.addEventListener("DOMContentLoaded", function(){
   var root = document.getElementById("root");
 
-  if(root){
+  if(currentUserId && root){
     ReactDOM.render(
       <Router history={HashHistory}>{routes}</Router>,
       root
     );
+  } else {
+    location = '/session/new';
   }
 });

@@ -41,5 +41,14 @@ module.exports = {
         ServerActions.receivePost(post);
       }
     });
+  },
+
+  destroySession: function(){
+    $.ajax({
+      type: "DELETE",
+      url: "/session",
+      success:
+        location = '/session/new'
+    });
   }
 };

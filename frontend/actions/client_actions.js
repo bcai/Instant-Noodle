@@ -15,5 +15,9 @@ module.exports = {
 
   updatePost: function (data) {
     ApiUtil.updatePost(data);
+  },
+
+  destroySession: function() {
+    ApiUtil.destroySession();
   }
 };

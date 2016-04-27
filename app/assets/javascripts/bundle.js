@@ -53,8 +53,8 @@
 	var Link = __webpack_require__(166).Link;
 	var HashHistory = __webpack_require__(166).hashHistory;
 	
-	var PostIndex = __webpack_require__(225),
-	
+	var ClientActions = __webpack_require__(249);
+	PostIndex = __webpack_require__(225),
 	// PostShow = require('./components/postShow.jsx'),
 	PostEdit = __webpack_require__(253);
 	
@@ -66,9 +66,18 @@
 	      'div',
 	      { id: 'main' },
 	      React.createElement(
-	        'h1',
-	        null,
-	        'Instant Noodle'
+	        'div',
+	        { id: 'nav' },
+	        React.createElement(
+	          'h1',
+	          null,
+	          'Instant Noodle'
+	        ),
+	        React.createElement(
+	          'button',
+	          { onClick: ClientActions.destroySession },
+	          'Sign out'
+	        )
 	      ),
 	      React.createElement(
 	        'div',
@@ -92,12 +101,14 @@
 	document.addEventListener("DOMContentLoaded", function () {
 	  var root = document.getElementById("root");
 	
-	  if (root) {
+	  if (currentUserId && root) {
 	    ReactDOM.render(React.createElement(
 	      Router,
 	      { history: HashHistory },
 	      routes
 	    ), root);
+	  } else {
+	    location = '/session/new';
 	  }
 	});
 
@@ -32365,6 +32376,10 @@
 	
 	  updatePost: function (data) {
 	    ApiUtil.updatePost(data);
+	  },
+	
+	  destroySession: function () {
+	    ApiUtil.destroySession();
 	  }
 	};
 
@@ -32415,6 +32430,14 @@
 	        ServerActions.receivePost(post);
 	      }
 	    });
+	  },
+	
+	  destroySession: function () {
+	    $.ajax({
+	      type: "DELETE",
+	      url: "/session",
+	      success: location = '/session/new'
+	    });
 	  }
 	};
 
@@ -32464,16 +32487,15 @@
 	    var post = this.props.post;
 	
 	    if (post.author_id === currentUserId) {
-	      editButton = React.createElement(
+	      var editButton = React.createElement(
 	        'button',
 	        { onClick: this.editPost },
 	        'Edit'
 	      );
 	    } else {
-	      editButton = "";
+	      var editButton = "";
 	    }
 	
-	    console.log("author: " + post.author);
 	    return React.createElement(
 	      'li',
 	      null,
@@ -32483,12 +32505,15 @@
 	        post.author.username
 	      ),
 	      React.createElement('img', { src: post.image_url, height: '300', width: '300' }),
+	      React.createElement('br', null),
+	      editButton,
 	      React.createElement(
 	        'p',
 	        null,
 	        post.description
 	      ),
-	      editButton
+	      React.createElement('br', null),
+	      React.createElement('br', null)
 	    );
 	  }
 	});

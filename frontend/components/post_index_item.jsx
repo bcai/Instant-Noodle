@@ -15,18 +15,19 @@ module.exports = React.createClass({
     var post = this.props.post;
 
     if (post.author_id === currentUserId){
-      editButton = <button onClick={this.editPost}>Edit</button>;
+      var editButton = <button onClick={this.editPost}>Edit</button>;
     } else {
-      editButton = "";
+      var editButton = "";
     }
 
-    console.log("author: " + post.author);
     return (
       <li>
         <h3>{post.author.username}</h3>
         <img src={post.image_url} height="300" width="300"/>
-        <p>{post.description}</p>
+        <br/>
         {editButton}
+        <p>{post.description}</p>
+        <br/><br/>
       </li>
     );
   }
