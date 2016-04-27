@@ -8,7 +8,6 @@ username        | string    | not null, indexed, unique
 full_name       | string    | not null
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
-post_id         | integer   | not null, foreign key (references posts), indexed
 
 ## posts
 column name | data type | details
