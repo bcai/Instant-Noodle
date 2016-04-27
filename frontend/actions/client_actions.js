@@ -1,4 +1,4 @@
-var ApiUtil = require('../util/apiUtil.js');
+var ApiUtil = require('../util/api_util.js');
 
 module.exports = {
   fetchAllPosts: function () {

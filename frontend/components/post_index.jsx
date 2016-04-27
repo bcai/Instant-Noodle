@@ -1,9 +1,9 @@
 var React = require('react');
-var PostStore = require('../stores/postStore.js');
-var ClientActions = require('../actions/clientActions.js');
+var PostStore = require('../stores/post_store.js');
+var ClientActions = require('../actions/client_actions.js');
 
-var PostIndexItem = require('./postIndexItem.jsx');
-var PostForm = require('./postForm.jsx');
+var PostIndexItem = require('./post_index_item.jsx');
+// var PostForm = require('./post_form.jsx');
 
 module.exports = React.createClass({
   getInitialState: function () {

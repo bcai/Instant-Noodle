@@ -1,5 +1,5 @@
 var AppDispatcher = require('../dispatcher/dispatcher.js');
-var PostConstants = require('../constants/postConstants.js');
+var PostConstants = require('../constants/post_constants.js');
 
 module.exports = {
   receiveAllPosts: function (posts) {

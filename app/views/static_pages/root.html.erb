@@ -1,1 +1,14 @@
-<div id="root">Instant Noodle</div>
+<h1>Instant Noodle</h1>
+
+<div id="root"></div>
+
+<!-- stores current user's id to frontend -->
+<% if signed_in? %>
+  <script type="text/javascript">
+    window.currentUserId = <%= current_user.id %>;
+  </script>
+<% else %>
+  <script type="text/javascript">
+    window.currentUserId = "";
+  </script>
+<% end %>

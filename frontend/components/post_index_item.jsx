@@ -1,7 +1,7 @@
 var React = require('react');
 var Link = require('react-router').Link;
-var ClientActions = require('../actions/clientActions.js');
-var hashHistory = require('react-router').hashHistory;
+var ClientActions = require('../actions/client_actions.js');
+var HashHistory = require('react-router').hashHistory;
 
 module.exports = React.createClass({
 
