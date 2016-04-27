@@ -1,1 +1,1 @@
-json.extract! post, :description, :author_id, :image_url
+json.extract! post, :description, :id, :author_id, :image_url

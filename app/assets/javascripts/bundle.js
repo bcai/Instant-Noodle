@@ -51,7 +51,7 @@
 	var Route = __webpack_require__(166).Route;
 	var IndexRoute = __webpack_require__(166).IndexRoute;
 	var Link = __webpack_require__(166).Link;
-	var hashHistory = __webpack_require__(166).hashHistory;
+	var HashHistory = __webpack_require__(166).hashHistory;
 	
 	var PostIndex = __webpack_require__(225),
 	
@@ -64,13 +64,17 @@
 	  render: function () {
 	    return React.createElement(
 	      'div',
-	      null,
+	      { id: 'main' },
 	      React.createElement(
-	        'h2',
+	        'h1',
 	        null,
-	        'Post Index'
+	        'Instant Noodle'
 	      ),
-	      this.props.children
+	      React.createElement(
+	        'div',
+	        { id: 'postIndex' },
+	        React.createElement(PostIndex, null)
+	      )
 	    );
 	  }
 	});
@@ -89,7 +93,11 @@
 	  var root = document.getElementById("root");
 	
 	  if (root) {
-	    ReactDOM.render(React.createElement(Router, { history: hashHistory, routes: routes }), root);
+	    ReactDOM.render(React.createElement(
+	      Router,
+	      { history: HashHistory },
+	      routes
+	    ), root);
 	  }
 	});
 
@@ -25494,7 +25502,7 @@
 	
 	  componentDidMount: function () {
 	    this.postListener = PostStore.addListener(this.getPostsFromStore);
-	    ClientActions.fetchPosts();
+	    ClientActions.fetchAllPosts();
 	  },
 	
 	  componentWillUnmount: function () {
@@ -25502,10 +25510,12 @@
 	  },
 	
 	  getPostsFromStore: function () {
+	    console.log("PostStore: " + PostStore.all());
 	    this.setState({ posts: PostStore.all() });
 	  },
 	
 	  render: function () {
+	    console.log("PostIndex posts: " + this.state);
 	    return React.createElement(
 	      'div',
 	      { className: 'post-index' },
@@ -32369,6 +32379,7 @@
 	module.exports = {
 	  fetchAllPosts: function () {
 	    $.ajax({
+	      type: 'GET',
 	      url: "api/posts",
 	      success: function (posts) {
 	        ServerActions.receiveAllPosts(posts);
@@ -32378,6 +32389,7 @@
 	
 	  fetchPost: function (id) {
 	    $.ajax({
+	      type: "GET",
 	      url: "api/posts/" + id.toString(),
 	      success: function (post) {
 	        ServerActions.receivePost(post);
@@ -32387,8 +32399,8 @@
 	
 	  createPost: function (data) {
 	    $.ajax({
-	      url: "api/posts",
 	      type: "POST",
+	      url: "api/posts",
 	      data: { post: data },
 	      success: function (post) {
 	        ServerActions.receivePost(post);
@@ -32398,8 +32410,8 @@
 	
 	  updatePost: function (data) {
 	    $.ajax({
-	      url: "api/posts/" + data.id,
 	      type: "PATCH",
+	      url: "api/posts/" + data.id,
 	      data: { post: { title: data.title, body: data.body } },
 	      success: function (post) {
 	        ServerActions.receivePost(post);
@@ -32447,13 +32459,13 @@
 	  editPost: function (event) {
 	    event.preventDefault();
 	    var url = "/posts/" + this.props.post.id.toString() + "/edit";
-	    hashHistory.push(url);
+	    HashHistory.push(url);
 	  },
 	
 	  render: function () {
 	    var post = this.props.post;
 	
-	    if (post.author_id === current_user.id) {
+	    if (post.author_id === currentUserId) {
 	      editButton = React.createElement(
 	        'button',
 	        { onClick: this.editPost },
@@ -32463,17 +32475,22 @@
 	      editButton = "";
 	    }
 	
+	    console.log(post.author);
 	    return React.createElement(
 	      'li',
 	      null,
 	      React.createElement(
-	        Link,
-	        { to: "/posts/" + this.props.post.id.toString() },
-	        post.title
+	        'h3',
+	        null,
+	        post.author.username
 	      ),
-	      ' ',
-	      editButton,
-	      ' '
+	      React.createElement('img', { src: post.image_url, height: '300', width: '300' }),
+	      React.createElement(
+	        'p',
+	        null,
+	        post.description
+	      ),
+	      editButton
 	    );
 	  }
 	});
@@ -32486,7 +32503,7 @@
 	var PostStore = __webpack_require__(226);
 	var ClientActions = __webpack_require__(249);
 	var Link = __webpack_require__(166).Link;
-	var hashHistory = __webpack_require__(166).hashHistory;
+	var HashHistory = __webpack_require__(166).hashHistory;
 	
 	module.exports = React.createClass({
 	  displayName: 'exports',
@@ -32530,7 +32547,7 @@
 	      id: parseInt(this.props.params.postId)
 	    };
 	    ClientActions.editPost(postData);
-	    hashHistory.push("/");
+	    HashHistory.push("/");
 	  },
 	
 	  render: function () {

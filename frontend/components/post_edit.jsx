@@ -2,7 +2,7 @@ var React = require('react');
 var PostStore = require('../stores/post_store.js');
 var ClientActions = require('../actions/client_actions.js');
 var Link = require('react-router').Link;
-var hashHistory = require('react-router').hashHistory;
+var HashHistory = require('react-router').hashHistory;
 
 module.exports = React.createClass({
   getInitialState: function () {
@@ -44,7 +44,7 @@ module.exports = React.createClass({
       id: parseInt(this.props.params.postId)
     };
     ClientActions.editPost(postData);
-    hashHistory.push("/");
+    HashHistory.push("/");
   },
 
 

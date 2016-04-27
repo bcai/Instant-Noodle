@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: :json } do
-    resources :posts, except: [:new, :destroy]
+    resources :posts, only: [:index, :show, :create, :update]
   end
 end

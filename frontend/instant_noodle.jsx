@@ -5,7 +5,7 @@ var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
 var Link = require('react-router').Link;
-var hashHistory = require('react-router').hashHistory;
+var HashHistory = require('react-router').hashHistory;
 
 var PostIndex = require('./components/post_index.jsx'),
     // PostShow = require('./components/postShow.jsx'),
@@ -14,11 +14,13 @@ var PostIndex = require('./components/post_index.jsx'),
 var App = React.createClass({
   render: function () {
     return (
-      <div>
-        <h2>Post Index</h2>
-        {this.props.children}
+      <div id="main">
+        <h1>Instant Noodle</h1>
+        <div id="postIndex">
+          <PostIndex />
+        </div>
       </div>
-    )
+    );
   }
 });
     
@@ -37,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   if(root){
     ReactDOM.render(
-      <Router history={hashHistory} routes={routes} />,
+      <Router history={HashHistory}>{routes}</Router>,
       root
     );
   }

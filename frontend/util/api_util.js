@@ -3,6 +3,7 @@ var ServerActions = require('../actions/server_actions.js');
 module.exports = {
   fetchAllPosts: function () {
     $.ajax({
+      type: 'GET',
       url: "api/posts",
       success: function (posts) {
         ServerActions.receiveAllPosts(posts);
@@ -12,6 +13,7 @@ module.exports = {
 
   fetchPost: function (id) {
     $.ajax({
+      type: "GET",
       url: "api/posts/" + id.toString(),
       success: function (post) {
         ServerActions.receivePost(post);
@@ -21,8 +23,8 @@ module.exports = {
 
   createPost: function (data) {
     $.ajax({
-      url: "api/posts",
       type: "POST",
+      url: "api/posts",
       data: { post: data },
       success: function (post) {
         ServerActions.receivePost(post);
@@ -32,8 +34,8 @@ module.exports = {
 
   updatePost: function (data) {
     $.ajax({
-      url: "api/posts/" + data.id,
       type: "PATCH",
+      url: "api/posts/" + data.id,
       data: { post: { title: data.title, body: data.body } },
       success: function (post) {
         ServerActions.receivePost(post);
