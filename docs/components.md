@@ -4,9 +4,9 @@
   * `SearchIndex`
   * `PostsIndex`
     * `PostIndexItem`
-      * `Post Detail`
         * `Post Edit`
-      * `Comment Detail`
+      * `Comments Index`
+        * `Comment Index Item`
         * `Comment Form` 
   * `PostForm`
   * `UserDetail`
