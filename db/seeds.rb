@@ -14,3 +14,10 @@ User.create!([
   {username: 'bderf', full_name: "Bran Don", password: "password"},
   {username: 'bDiddy', full_name: "DonBranCai", password: "password"}
 ])
+
+Post.create!([
+  {description: 'das a cat', author_id: 1, image_url: 'https://pixabay.com/photo-1333926/'},
+  {description: 'das a dog', author_id: 1, image_url: 'https://pixabay.com/photo-1284702/'},
+  {description: 'das a corgi', author_id: 3, image_url: 'https://pixabay.com/photo-14858/'},
+  {description: 'das a kitty', author_id: 6, image_url: 'https://pixabay.com/photo-323262/'},
+])
