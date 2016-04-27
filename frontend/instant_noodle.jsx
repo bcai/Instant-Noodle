@@ -41,12 +41,10 @@ var routes = (
 document.addEventListener("DOMContentLoaded", function(){
   var root = document.getElementById("root");
 
-  if(currentUserId && root){
+  if(root){
     ReactDOM.render(
       <Router history={HashHistory}>{routes}</Router>,
       root
     );
-  } else {
-    location = '/session/new';
   }
 });

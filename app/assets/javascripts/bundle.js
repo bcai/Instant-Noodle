@@ -101,14 +101,12 @@
 	document.addEventListener("DOMContentLoaded", function () {
 	  var root = document.getElementById("root");
 	
-	  if (currentUserId && root) {
+	  if (root) {
 	    ReactDOM.render(React.createElement(
 	      Router,
 	      { history: HashHistory },
 	      routes
 	    ), root);
-	  } else {
-	    location = '/session/new';
 	  }
 	});
 
