@@ -1,6 +1,6 @@
 # Instant Noodle
 
-[Heroku link][heroku] **NB:** This should be a link to your production site
+Heroku Link: [Instant Noodle][heroku]
 
 [heroku]: https://instant-noodle.herokuapp.com
 
