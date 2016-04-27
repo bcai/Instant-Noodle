@@ -11,11 +11,6 @@ module.exports = React.createClass({
     hashHistory.push(url);
   },
 
-  deletePost: function (event) {
-    event.preventDefault();
-    ClientActions.deletePost(this.props.post.id);
-  },
-
   render: function () {
     var post = this.props.post;
 

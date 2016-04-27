@@ -20138,7 +20138,7 @@
 	  },
 	
 	  componentDidMount: function () {
-	    this.postListener = PostStore.addListener(this.getPosts);
+	    this.postListener = PostStore.addListener(this.getPostsFromStore);
 	    ClientActions.fetchPosts();
 	  },
 	
@@ -20146,7 +20146,7 @@
 	    this.postListener.remove();
 	  },
 	
-	  getPosts: function () {
+	  getPostsFromStore: function () {
 	    this.setState({ posts: PostStore.all() });
 	  },
 	
@@ -20182,11 +20182,6 @@
 	    event.preventDefault();
 	    var url = "/posts/" + this.props.post.id.toString() + "/edit";
 	    hashHistory.push(url);
-	  },
-	
-	  deletePost: function (event) {
-	    event.preventDefault();
-	    ClientActions.deletePost(this.props.post.id);
 	  },
 	
 	  render: function () {

@@ -11,7 +11,7 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function () {
-    this.postListener = PostStore.addListener(this.getPosts);
+    this.postListener = PostStore.addListener(this.getPostsFromStore);
     ClientActions.fetchPosts();
   },
 
@@ -19,7 +19,7 @@ module.exports = React.createClass({
     this.postListener.remove();
   },
 
-  getPosts: function () {
+  getPostsFromStore: function () {
     this.setState({ posts: PostStore.all() });
   },
 
