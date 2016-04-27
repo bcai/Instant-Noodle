@@ -15,7 +15,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 description | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
-url         | string    | not null
+image_url   | string    | not null
 
 ## likes
 column name | data type | details
