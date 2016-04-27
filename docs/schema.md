@@ -15,8 +15,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 description | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
-filename    | string    | not null
-binary_data | binary    | not null
+url         | string    | not null
 
 ## likes
 column name | data type | details
