@@ -20,12 +20,10 @@ module.exports = React.createClass({
   },
 
   getPostsFromStore: function () {
-    console.log("PostStore: " + PostStore.all());
     this.setState({ posts: PostStore.all() });
   },
 
   render: function () {
-    console.log("PostIndex posts: " + this.state);
     return (
       <div className="post-index">
         <ul>

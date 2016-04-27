@@ -25510,12 +25510,10 @@
 	  },
 	
 	  getPostsFromStore: function () {
-	    console.log("PostStore: " + PostStore.all());
 	    this.setState({ posts: PostStore.all() });
 	  },
 	
 	  render: function () {
-	    console.log("PostIndex posts: " + this.state);
 	    return React.createElement(
 	      'div',
 	      { className: 'post-index' },
@@ -32475,10 +32473,15 @@
 	      editButton = "";
 	    }
 	
-	    console.log(post.author);
+	    console.log("author: " + post.author);
 	    return React.createElement(
 	      'li',
 	      null,
+	      React.createElement(
+	        'h3',
+	        null,
+	        post.author.username
+	      ),
 	      React.createElement('img', { src: post.image_url, height: '300', width: '300' }),
 	      React.createElement(
 	        'p',

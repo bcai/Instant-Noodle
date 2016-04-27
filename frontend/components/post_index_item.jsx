@@ -20,9 +20,10 @@ module.exports = React.createClass({
       editButton = "";
     }
 
-    console.log(post.author);
+    console.log("author: " + post.author);
     return (
       <li>
+        <h3>{post.author.username}</h3>
         <img src={post.image_url} height="300" width="300"/>
         <p>{post.description}</p>
         {editButton}
