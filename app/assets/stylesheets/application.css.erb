@@ -169,7 +169,7 @@ ul {
 }
 
 .header-nav {
-  width: 70%;
+  width: 80%;
   margin: auto;
 }
 
@@ -201,6 +201,7 @@ ul {
 .header-list-item-user {
   float: left;
   margin: 12px 12px 0 0;
+  color: #d31f28;
 }
 .header-list-item-sign-out {
   float: left;
@@ -230,15 +231,44 @@ ul {
 /* MAIN */
 
 #main {
-
+  font-family: sans-serif;
   background-color: #fafafa;
 }
 
-.post-index ul{
+.post-index {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-
+  padding-top: 65px;
 }
 
+.post {
+  width: 42%;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  margin-bottom: 65px;
+
+  background-color: white;
+}
+.post h3 {
+  padding: 20px;
+
+  color: #d31f28;
+  font-family: Helvetica Neue;
+  font-size: 14px;
+  font-weight: bold;
+}
+.post img{
+  width: 100%;
+}
+.post p span{
+  margin-right: 5px;
+  color: #d31f28;
+  font-family: Helvetica Neue;
+  font-weight: bold;
+}
+.post p {
+  padding: 20px;
+  font-size: 14px;
+}

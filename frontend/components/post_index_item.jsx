@@ -21,12 +21,12 @@ module.exports = React.createClass({
     }
 
     return (
-      <li>
+      <li className="post">
         <h3>{post.author.username}</h3>
-        <img src={post.image_url} height="300" width="300"/>
+        <img src={post.image_url}/>
         <br/>
         {editButton}
-        <p>{post.description}</p>
+        <p><span>{post.author.username}</span>  {post.description}</p>
         <br/><br/>
       </li>
     );

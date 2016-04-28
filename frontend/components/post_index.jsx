@@ -25,8 +25,8 @@ module.exports = React.createClass({
 
   render: function () {
     return (
-      <div className="post-index">
-        <ul>
+      <div>
+        <ul className="post-index">
           {
             this.state.posts.map(function (post) {
               return (<PostIndexItem key={post.id} post={post} />);
