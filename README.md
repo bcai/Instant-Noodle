@@ -89,9 +89,16 @@ user interface.
 
 **Objective:** Existing pages (including sign-up/sign-in) will look good.
 
-- [ ] create a basic style guide
-- [ ] position elements on the page
-- [ ] add basic colors & styles
+- [X] Sign In/Up pages
+  - [X] create a basic style guide
+  - [X] position elements on the page
+  - [X] add basic colors & styles
+- [ ] Post Index page
+  - [ ] create a basic style guide
+  - [ ] position elements on the page
+  - [ ] add basic colors & styles
+  - [ ] navbar
+  - [ ] footer
 
 ### Phase 5: Comments (1 day)
 
