@@ -13,3 +13,112 @@
  *= require_tree .
  *= require_self
  */
+
+html, body, section, article, h1, h2, p, strong, em, a {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: inherit;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+html{
+  height: 100%;
+}
+body {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+}
+
+ul {
+  list-style-type: none; 
+}
+
+/*SIGN IN PAGE */
+.wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(/assets/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.sign-in {
+  width: 30em;
+  
+  margin: auto;
+  margin-top: 15em;
+
+  text-align: center;
+  font-family: Helvetica Neue;
+  font-size: 14px;
+}
+.sign-in img{
+  margin-bottom: 5%;
+}
+.sign-in li {
+  padding-right: 2.6em;
+  font-size: 13px;
+  color: #d31f28;
+}
+
+
+#form-section {
+  border: 1px solid grey;
+  border-radius: 1px;
+  padding: 8%;
+  margin-bottom: 5%;
+
+  background-color: rgba(255,255,255, 0.85);
+}
+.form-box {
+  width: 15em;
+  height: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  padding: 4px;
+  margin-bottom: 2%;
+
+  font-size: 13px;
+  opacity: 1;
+}
+.submit-button {
+  width: 15.9em;
+  height: 30px;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  padding: 4px;
+  margin: 0 2px 0 0;
+
+  background-color: #d31f28;
+  color: white;
+  opacity: 1;
+
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+#link-section {
+  border: 1px solid grey;
+  border-radius: 2px;
+  padding: 5%;
+
+  background-color: white;
+  opacity: 0.85;
+}
+
+
+/* SIGN UP PAGE */
+
+
+
