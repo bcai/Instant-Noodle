@@ -4,6 +4,7 @@
 <% if signed_in? %>
   <script type="text/javascript">
     window.currentUserId = <%= current_user.id %>;
+    window.currentUserName = "<%= current_user.username %>";
   </script>
 <% else %>
   <script type="text/javascript">

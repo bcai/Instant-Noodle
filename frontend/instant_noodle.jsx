@@ -15,12 +15,33 @@ var ClientActions = require('./actions/client_actions.js');
 var App = React.createClass({
   render: function() {
     return (
-      <div id="main">
-        <div id="nav">
-          <h1>Instant Noodle</h1>
-          <button onClick={ClientActions.destroySession}>Sign out</button>
-        </div>
-        <div id="postIndex">
+      <div className="main-wrapper">
+        <header className="header">
+          <nav className="header-nav group">
+
+            <div className="header-nav-logo group">
+              <a href="#"></a>
+            </div>
+
+            <div className="header-nav-menu group">
+              <div className="header-menu-search">
+                <h2>Search Bar</h2>
+              </div>
+
+              <ul className="header-nav-menu-list">
+                <li className="header-list-item-user">
+                  <a href="#">{window.currentUserName}</a>
+                </li>
+
+                <li className="header-list-item-sign-out">
+                  <button onClick={ClientActions.destroySession}>Sign out</button>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+
+        <div id="main">
           <PostIndex />
         </div>
       </div>
