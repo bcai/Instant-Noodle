@@ -1,35 +1,45 @@
-<h1>Instant Noodle</h1>
+<div class="wrapper">  
+  <div class="sign-in-up">
+    <div id="form-section">
+      <img src='<%= asset_path("title.png") %>'/>
 
-<h2>Sign Up</h2>
+      <form action="<%= users_url %>" method="post">
 
-<%= render "shared/errors" %>
+        <input type="hidden"
+               name="authenticity_token"
+               value="<%= form_authenticity_token %>">
 
-<form action="<%= users_url %>" method="post">
+        <input class="form-box"
+               type="text"
+               name="user[full_name]"
+               value="<%= @user.full_name %>"
+               placeholder="Full Name">
+        <br>
 
-  <input type="hidden"
-         name="authenticity_token"
-         value="<%= form_authenticity_token %>">
+        <input class="form-box"
+               type="text"
+               name="user[username]"
+               value="<%= @user.username %>"
+               placeholder="Username">
+        <br>
 
-  <label>Username
-    <input type="text"
-           name="user[username]"
-           value="<%= @user.username %>">
-  </label>
-  <br>
+        <input class="form-box"
+               type="password"
+               name="user[password]"
+               value="<%= @user.password %>"
+               placeholder="Password">
+        <br>
 
-  <label>Full Name
-    <input type="text"
-           name="user[full_name]"
-           value="<%= @user.full_name %>">
-  </label>
-  <br>
+        <input class="submit-button" 
+               type="submit" 
+               value="Sign Up">
+      
+        <%= render "shared/errors" %>
+      </form>
+    </div>
 
-  <label>Password
-    <input type="password"
-           name="user[password]"
-           value="<%= @user.password %>">
-  </label>
-  <br>
-
-  <input type="submit" value="Sign Up">
-</form>
+    <div id="link-section">
+      <p>Have an account? <%= link_to "Log in", new_user_url %></p>
+    </div>
+  </div>
+</div>
