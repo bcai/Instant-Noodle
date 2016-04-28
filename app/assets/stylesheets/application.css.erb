@@ -23,7 +23,7 @@
 
 /* RESET */
 
-html, body, section, article, h1, h2, p, strong, em, a, div, ul{
+html, body, section, article, h1, h2, h3, p, strong, em, a, div, ul{
   margin: 0;
   border: 0;
   padding: 0;
@@ -144,6 +144,13 @@ ul {
   color: #d31f28;
 }
 
+
+
+
+
+
+
+
 /* MAIN WRAPPER */
 
 .main-wrapper {
@@ -156,14 +163,13 @@ ul {
 .header {
   display: block;
   height: 100%;
-  margin-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 0 20px 0;
 
   font-family: sans-serif;
 }
 
 .header-nav {
-  width: 85%;
+  width: 70%;
   margin: auto;
 }
 
@@ -171,14 +177,13 @@ ul {
   float: left;
   width: 24%;
 }
-.header-nav-logo a{
+/*.header-nav-logo a{
   content:url("/assets/logo.png");
 }
-
+*/
 
 .header-nav-menu {
   width: 70%;
-  margin-top: 10px;
   float: right;
 }
 
@@ -195,15 +200,15 @@ ul {
 }
 .header-list-item-user {
   float: left;
-  margin-right: 10px;
+  margin: 12px 12px 0 0;
 }
 .header-list-item-sign-out {
   float: left;
-  margin-top: -6px;
 }
 .header-list-item-sign-out button {
   width: 6em;
   height: 30px;
+  margin-top: 5px;
   border: 1px solid lightgrey;
   border-radius: 4px;
   padding: 4px;
@@ -225,8 +230,15 @@ ul {
 /* MAIN */
 
 #main {
-  margin-top: -19px;
 
   background-color: #fafafa;
+}
+
+.post-index ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
 }
 

@@ -20,12 +20,12 @@ var App = React.createClass({
           <nav className="header-nav group">
 
             <div className="header-nav-logo group">
-              <a href="#"></a>
+              <a href="#"><img src="/assets/logo.png"/></a>
             </div>
 
             <div className="header-nav-menu group">
               <div className="header-menu-search">
-                <h2>Search Bar</h2>
+
               </div>
 
               <ul className="header-nav-menu-list">
