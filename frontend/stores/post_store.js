@@ -12,10 +12,12 @@ var resetPosts = function (posts) {
   posts.forEach(function (post) {
     _posts[post.id] = post;
   });
+  PostStore.__emitChange();
 };
 
 var setPost = function (post) {
   _posts[post.id] = post;
+  PostStore.__emitChange();
 };
 
 PostStore.all = function () {
@@ -38,7 +40,6 @@ PostStore.__onDispatch = function (payload) {
       setPost(payload.post);
       break;
   }
-  this.__emitChange();
 };
 
 module.exports = PostStore;

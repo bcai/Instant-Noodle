@@ -10,5 +10,35 @@
 
 <%= yield %>
 
+
+<!-- Demo Login -->
+<script type="text/javascript">
+  $(".demo").click(function(event){
+    event.preventDefault();
+
+    var usernameCount = 0; //max length 5
+    var passwordCount = 0; //max length 8
+
+    var usernameText = "guest";
+    var passwordText = "password";
+
+    var username = $("#username");
+    var password = $("#password");
+
+    var interval = setInterval(function(){
+      if (usernameCount < 5) {
+        username.val(usernameText.substring(0,usernameCount+1));
+        usernameCount++;
+      } else if (passwordCount < 8) {
+        password.val(passwordText.substring(0,passwordCount+1));
+        passwordCount++;
+      } else {
+        $("form").submit();
+        clearInterval(interval);
+      }
+    }, 75);
+  });
+</script>
+
 </body>
 </html>

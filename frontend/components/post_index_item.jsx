@@ -28,7 +28,7 @@ module.exports = React.createClass({
 
     var editable = "post";
 
-    if (post.author_id === currentUserId){
+    if (post.author.id === currentUserId){
       editable = "post editable"
       var editButton = <button className="submit-button editable" onClick={this.editPost}></button>;
     } else {

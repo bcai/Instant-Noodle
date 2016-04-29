@@ -5,6 +5,7 @@ var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
 var HashHistory = require('react-router').hashHistory;
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 var ClientActions = require('./actions/client_actions.js'),
     PostIndex = require('./components/post_index.jsx'),
@@ -39,10 +40,12 @@ var App = React.createClass({
             </div>
           </nav>
         </header>
-
-        <div id="main">
-          {this.props.children}
-        </div>
+        <ReactCSSTransitionGroup transitionName="index" transitionAppear={true} transitionAppearTimeout={500} 
+                             transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+          <div id="main">
+            {this.props.children}
+          </div>
+        </ReactCSSTransitionGroup>
       </div>
     );
   }
