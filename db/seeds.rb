@@ -16,8 +16,8 @@ User.create!([
 ])
 
 Post.create!([
-  {description: 'das a cat', author_id: 1, image_url: 'https://pixabay.com/static/uploads/photo/2016/04/16/23/07/cat-1333926_960_720.jpg'},
-  {description: 'das a dog', author_id: 1, image_url: 'https://pixabay.com/static/uploads/photo/2016/03/27/23/43/bernese-mountain-dog-1284702_960_720.jpg'},
-  {description: 'das a corgi', author_id: 3, image_url: 'https://pixabay.com/static/uploads/photo/2012/02/19/10/48/corgi-14858_960_720.jpg'},
-  {description: 'das a kitty', author_id: 6, image_url: 'https://pixabay.com/static/uploads/photo/2014/04/13/20/49/cat-323262_960_720.jpg'},
+  {description: 'Soup of the day', author_id: 3, image_url: 'https://images.unsplash.com/photo-1449793079811-bc4bcd990abf?crop=entropy&fit=crop&fm=jpg&h=850&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1450'},
+  {description: 'My favorite pie. #cranberry', author_id: 3, image_url: 'https://images.unsplash.com/photo-1460380410874-537ecece3984?crop=entropy&fit=crop&fm=jpg&h=850&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1450'},
+  {description: '#spicy', author_id: 2, image_url: 'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?crop=entropy&fit=crop&fm=jpg&h=850&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1450'},
+  {description: 'Best burger in town. #bacon #datcheesedoe', author_id: 1, image_url: 'https://images.unsplash.com/photo-1460306855393-0410f61241c7?crop=entropy&fit=crop&fm=jpg&h=850&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1450'},
 ])
