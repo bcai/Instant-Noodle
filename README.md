@@ -82,6 +82,7 @@ user interface.
   - [x] `PostsIndex`
   - [x] `PostIndexItem`
   - [ ] `PostForm`
+  - [X] `PostEdit` Modal
 - [ ] save Posts to the DB when the form loses focus or is left idle
   after editing.
 
@@ -93,11 +94,11 @@ user interface.
   - [X] create a basic style guide
   - [X] position elements on the page
   - [X] add basic colors & styles
-- [ ] Post Index page
-  - [ ] create a basic style guide
-  - [ ] position elements on the page
-  - [ ] add basic colors & styles
-  - [ ] navbar
+- [X] Post Index page
+  - [X] create a basic style guide
+  - [X] position elements on the page
+  - [X] add basic colors & styles
+  - [X] navbar
   - [ ] footer
 
 ### Phase 5: Comments (1 day)
