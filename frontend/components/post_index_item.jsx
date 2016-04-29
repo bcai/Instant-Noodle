@@ -47,7 +47,7 @@ module.exports = React.createClass({
 
         <Modal className="modal" isOpen={this.state.showForm}>
           <PostEdit postId={post.id} callback={this.closeModal}/>
-          <button className="submit-button" onClick={this.closeModal}>Close</button>
+          <button className="submit-button close-button" onClick={this.closeModal}>Close</button>
         </Modal>
       </li>
     );

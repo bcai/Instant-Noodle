@@ -60,7 +60,9 @@ module.exports = React.createClass({
 
           <br /><br />
 
-          <input type="submit" value="Save Changes"/>
+          <input className="submit-button" 
+                 type="submit" 
+                 value="Save Changes"/>
         </form>
 
       </div>
