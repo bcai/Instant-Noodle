@@ -26,13 +26,16 @@ module.exports = React.createClass({
   render: function () {
     var post = this.props.post;
 
+    var editable = "post";
+
     if (post.author_id === currentUserId){
-      var editButton = <button className="submit-button" onClick={this.editPost}></button>;
+      editable = "post editable"
+      var editButton = <button className="submit-button editable" onClick={this.editPost}></button>;
     } else {
       var editButton = "";
     }
     return (
-      <li className="post">
+      <li className={editable}>
         <div className="post-header group">
           <div>{post.author.username}</div>
           {editButton}
