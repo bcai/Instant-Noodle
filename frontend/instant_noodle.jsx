@@ -6,7 +6,7 @@ var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
 var HashHistory = require('react-router').hashHistory;
 
-var ClientActions = require('./actions/client_actions.js');
+var ClientActions = require('./actions/client_actions.js'),
     PostIndex = require('./components/post_index.jsx'),
     // PostShow = require('./components/postShow.jsx'),
     PostEdit = require('./components/post_edit.jsx');
