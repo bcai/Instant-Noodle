@@ -2,13 +2,25 @@ var React = require('react');
 var Link = require('react-router').Link;
 var ClientActions = require('../actions/client_actions.js');
 var HashHistory = require('react-router').hashHistory;
+var PostEdit = require('./post_edit');
+var Modal = require('react-modal');
 
 module.exports = React.createClass({
+  getInitialState: function(){
+    return {showForm: false};
+  },
+
+  componentWillMount: function(){
+    Modal.setAppElement("body");
+  },
 
   editPost: function (event) {
     event.preventDefault();
-    var url = "/posts/" + this.props.post.id.toString() + "/edit";
-    HashHistory.push(url);
+    this.setState({showForm: true});
+  },
+
+  closeModal: function() {
+    this.setState({showForm: false});
   },
 
   render: function () {
@@ -19,7 +31,6 @@ module.exports = React.createClass({
     } else {
       var editButton = "";
     }
-
     return (
       <li className="post">
         <h3>{post.author.username}</h3>
@@ -28,6 +39,11 @@ module.exports = React.createClass({
         {editButton}
         <p><span>{post.author.username}</span>  {post.description}</p>
         <br/><br/>
+
+        <Modal className="modal" isOpen={this.state.showForm}>
+          <PostEdit postId={post.id} callback={this.closeModal}/>
+          <button className="submit-button" onClick={this.closeModal}>Close</button>
+        </Modal>
       </li>
     );
   }

@@ -6,15 +6,16 @@ var HashHistory = require('react-router').hashHistory;
 
 module.exports = React.createClass({
   getInitialState: function () {
-    var potentialPost = PostStore.find(this.props.params.postId);
+    var potentialPost = PostStore.find(this.props.postId);
     var post = potentialPost ? potentialPost : {};
+    console.log("post: " + post);
     return ({ description: post.description, 
               imageUrl: post.image_url, });
   },
 
   componentDidMount: function () {
     this.postListener = PostStore.addListener(this.handleChange);
-    ClientActions.getPost(parseInt(this.props.params.postId));
+    ClientActions.fetchPost(parseInt(this.props.postId));
   },
 
   componentWillUnmount: function () {
@@ -30,7 +31,7 @@ module.exports = React.createClass({
   },
 
   handleChange: function () {
-    var potentialPost = PostStore.find(this.props.params.postId);
+    var potentialPost = PostStore.find(this.props.postId);
     var post = potentialPost ? potentialPost : {};
     this.setState({ imageUrl: post.image_url, 
                     description: post.description });
@@ -41,23 +42,18 @@ module.exports = React.createClass({
     var postData = {
       image_url: this.state.image_url,
       description: this.state.description,
-      id: parseInt(this.props.params.postId)
+      id: parseInt(this.props.postId)
     };
-    ClientActions.editPost(postData);
-    HashHistory.push("/");
+    ClientActions.updatePost(postData);
+    this.props.callback();
   },
 
 
   render: function () {
     return (
-      <div>
+      <div className="modal-form-wrapper">
+        <h3>Edit Post</h3>
         <form id="post-form" onSubmit={this.handleSubmit}>
-          <input
-            type="image"
-            onChange={this.imageUrlChange}
-            src={this.state.image_url} />
-
-          <br /><br />
           <textarea
             onChange={this.descriptionChange}
             value={this.state.description} />
@@ -67,7 +63,6 @@ module.exports = React.createClass({
           <input type="submit" value="Save Changes"/>
         </form>
 
-        <Link to="/">Back to Index</Link>
       </div>
      );
   }

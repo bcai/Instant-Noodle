@@ -4,7 +4,6 @@ var ReactDOM = require('react-dom');
 var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
-var Link = require('react-router').Link;
 var HashHistory = require('react-router').hashHistory;
 
 var ClientActions = require('./actions/client_actions.js');
@@ -20,7 +19,7 @@ var App = React.createClass({
           <nav className="header-nav group">
 
             <div className="header-nav-logo group">
-              <a href="#"><img src="/assets/logo.png"/></a>
+              <a href="/"><img src="/assets/logo.png"/></a>
             </div>
 
             <div className="header-nav-menu group">
@@ -42,7 +41,7 @@ var App = React.createClass({
         </header>
 
         <div id="main">
-          <PostIndex />
+          {this.props.children}
         </div>
       </div>
     );
@@ -54,8 +53,8 @@ var App = React.createClass({
 
 var routes = (
   <Route path="/" component={App}>
-    <Route path="posts" component={PostIndex} />
-    <Route path="posts/:postId/edit" component={PostEdit} />
+    <IndexRoute component={PostIndex}/>
+    <Route path="posts" component={PostIndex}/>
   </Route>
 );
 

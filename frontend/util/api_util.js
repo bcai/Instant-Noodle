@@ -36,7 +36,7 @@ module.exports = {
     $.ajax({
       type: "PATCH",
       url: "api/posts/" + data.id,
-      data: { post: { title: data.title, body: data.body } },
+      data: { post: { description: data.description } },
       success: function (post) {
         ServerActions.receivePost(post);
       }
