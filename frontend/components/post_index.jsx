@@ -46,7 +46,9 @@ module.exports = React.createClass({
         <ul className="post-index">
           {posts}
         </ul>
-        <button className="create-button" onClick={this.createPost}></button>
+        <button className="create-button" onClick={this.createPost}>
+          <img src="/assets/symbol.png"/>
+        </button>
 
         <Modal className="modal" isOpen={this.state.showForm}>
           <PostForm callback={this.closeModal}/>

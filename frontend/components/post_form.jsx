@@ -22,16 +22,19 @@ module.exports = React.createClass({
 
   render: function () {
     return (
-      <div>
+      <div className="modal-form-wrapper">
         <h3>New Post</h3>
-        <form onSubmit={this.handleSubmit}>
+        <form className="post-form" onSubmit={this.handleSubmit}>
           <textarea
+            onChange={this.descriptionChange} 
             value={this.state.description}
-            onChange={this.descriptionChange} />
+            placeholder="Add a description" />
 
           <br /><br />
 
-          <input className="submit-button" type="submit" value="Create Post" />
+          <input className="submit-button" 
+                 type="submit" 
+                 value="Create Post" />
         </form>
       </div>
     );
