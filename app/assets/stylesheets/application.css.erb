@@ -149,7 +149,7 @@ ul {
 }
 .divider {
     width:270px;
-    margin: 0.75em auto 0.75em auto;
+    margin: 1em auto 0.75em auto;
     text-align:center;
 }
 
@@ -336,7 +336,25 @@ ul {
 
 
 
+/* MODAL TRANSITIONS */
 
+.fade-appear {
+  opacity: 0;
+  transition: opacity .5s ease-in;
+}
+ 
+.fade-appear.fade-appear-active {
+  opacity: 1;
+}
+ 
+.fade-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+ 
+.fade-leave.fade-leave-active {
+  opacity: 0;
+}
 
 /* EDIT POST */
 
@@ -407,17 +425,22 @@ ul {
 }
 
 .create-button {
+  position: fixed;
   bottom: 0;
   right: 0;
-  margin-left: 11%;
-  margin-bottom: 20%;
-  z-index: 1;
-  background-color: transparent;
+  z-index: 0;
+
+  width: 78px;
+  height: 74px;
+  margin-bottom: 62px;
+  margin-right: 14%;
   border: none;
-  width: 200px;
-  height: 200px;
-  position: fixed;
+
+  background-color: transparent;
 }
 .create-button img {
-  z-index: 1000;
+  z-index: 0;
+}
+.create-button:hover{
+  cursor: pointer;
 }
