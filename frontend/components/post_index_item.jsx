@@ -33,15 +33,30 @@ module.exports = React.createClass({
     } else {
       var editButton = "";
     }
+
+    if (post.age){
+      var age = post.age.replace("about", "");
+      if (age.indexOf(" hours") !== -1){
+        age = age.replace(" hours", "h");
+      } else if (age.indexOf(" day") !== -1){
+        age = age.replace(" day", "d");
+      }
+    }
     return (
       <li className={editable}>
         <div className="post-header group">
-          <div>{post.author.username}</div>
-          {editButton}
+          <div id="post-author"><a href="#">{post.author.username}</a></div>
+          <ul>
+            <div id="post-age">{age}</div>
+            {editButton}
+          </ul>
         </div>
         <img src={post.image_url}/>
         <br/>
-        <p><span>{post.author.username}</span>  {post.description}</p>
+        <p>
+          <span><a href="#">{post.author.username}</a></span>  
+          {post.description}
+        </p>
         <br/><br/>
 
         <Modal className="modal" isOpen={this.state.showForm}>

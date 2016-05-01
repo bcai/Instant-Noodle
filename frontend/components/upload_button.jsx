@@ -8,7 +8,11 @@ module.exports = React.createClass({
       window.cloudinary_options, 
       function(error, images){
         if (error == null) {
-          this.props.addImage(images[0].url);
+          var fullUrl = images[0].secure_url;
+          var urlPath = ("f_auto/" + images[0].public_id + "." + images[0].format);
+          fullUrl = fullUrl.replace(images[0].path, urlPath);
+          debugger
+          this.props.addImage(fullUrl);
         }
     }.bind(this));
   },

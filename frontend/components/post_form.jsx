@@ -34,7 +34,7 @@ module.exports = React.createClass({
         <h3>New Post</h3>
         <form className="post-form" onSubmit={this.handleSubmit}>
 
-          <UploadButton addImage={this.addImage}/>
+          <UploadButton fetchFormat={"auto"} addImage={this.addImage}/>
 
           <textarea
             onChange={this.addDescription} 
