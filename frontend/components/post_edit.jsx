@@ -1,8 +1,8 @@
 var React = require('react');
 var PostStore = require('../stores/post_store.js');
 var ClientActions = require('../actions/client_actions.js');
-var Link = require('react-router').Link;
-var HashHistory = require('react-router').hashHistory;
+var UploadButton = require('./upload_button');
+
 
 module.exports = React.createClass({
   getInitialState: function () {
@@ -23,7 +23,7 @@ module.exports = React.createClass({
   },
 
   changeImage: function (url) {
-    this.setState({ image_url: url });
+    this.setState({ imageUrl: url });
   },
 
   changeDescription: function (event) {
@@ -40,9 +40,9 @@ module.exports = React.createClass({
   handleSubmit: function (event) {
     event.preventDefault();
     var postData = {
-      image_url: this.state.image_url,
+      image_url: this.state.imageUrl,
       description: this.state.description,
-      id: parseInt(this.props.postId)
+      id: parseInt(this.props.postId),
     };
     ClientActions.updatePost(postData);
     this.props.callback();

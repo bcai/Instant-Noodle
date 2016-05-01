@@ -4,11 +4,11 @@ var UploadButton = require('./upload_button');
 
 module.exports = React.createClass({
   getInitialState: function () {
-    return ({ image_url: "", description: "" });
+    return ({ imageUrl: "", description: "" });
   },
 
   addImage: function (url) {
-    this.setState({ image_url: url });
+    this.setState({ imageUrl: url });
   },
 
   addDescription: function (event) {
@@ -20,11 +20,11 @@ module.exports = React.createClass({
     event.preventDefault();
     var postData = {
       description: this.state.description,
-      image_url: this.state.image_url,
+      image_url: this.state.imageUrl,
       author_id: currentUserId
     };
     ClientActions.createPost(postData);
-    this.setState({ image_url: "", description: ""});
+    this.setState({ imageUrl: "", description: ""});
     this.props.callback();
   },
 

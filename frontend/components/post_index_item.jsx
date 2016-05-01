@@ -1,7 +1,6 @@
 var React = require('react');
 var Link = require('react-router').Link;
 var ClientActions = require('../actions/client_actions.js');
-var HashHistory = require('react-router').hashHistory;
 var PostEdit = require('./post_edit');
 var Modal = require('react-modal');
 

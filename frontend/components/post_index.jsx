@@ -44,7 +44,7 @@ module.exports = React.createClass({
     return (
       <div id="post-index-container">
         <ul className="post-index">
-          {posts}
+          {posts.reverse()}
         </ul>
         <button className="create-button" onClick={this.openCreateModal}>
           <img src="/assets/symbol.png"/>
