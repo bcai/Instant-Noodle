@@ -22,11 +22,11 @@ module.exports = React.createClass({
     this.postListener.remove();
   },
 
-  imageUrlChange: function (event) {
-    this.setState({ imageUrl: event.target.value });
+  changeImage: function (url) {
+    this.setState({ image_url: url });
   },
 
-  descriptionChange: function (event) {
+  changeDescription: function (event) {
     this.setState({ description: event.target.value });
   },
 
@@ -54,16 +54,19 @@ module.exports = React.createClass({
       <div className="modal-form-wrapper">
         <h3>Edit Post</h3>
         <form className="post-form" onSubmit={this.handleSubmit}>
-          <textarea
-            onChange={this.descriptionChange}
-            value={this.state.description}
-            placeholder="Add a description" />
 
-          <br /><br />
+          <UploadButton addImage={this.changeImage}/>
+
+          <textarea
+            onChange={this.changeDescription}
+            value={this.state.description}
+            placeholder="Add a description"/>
+
+          <br/><br/>
 
           <input className="submit-button" 
                  type="submit" 
-                 value="Save Changes" />
+                 value="Save Changes"/>
         </form>
 
       </div>

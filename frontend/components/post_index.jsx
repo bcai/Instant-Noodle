@@ -28,7 +28,7 @@ module.exports = React.createClass({
     this.setState({ posts: PostStore.all() });
   },
 
-  createPost: function (event) {
+  openCreateModal: function (event) {
     this.setState({showForm: true});
   },
 
@@ -46,7 +46,7 @@ module.exports = React.createClass({
         <ul className="post-index">
           {posts}
         </ul>
-        <button className="create-button" onClick={this.createPost}>
+        <button className="create-button" onClick={this.openCreateModal}>
           <img src="/assets/symbol.png"/>
         </button>
 

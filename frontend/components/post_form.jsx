@@ -1,12 +1,17 @@
 var React = require('react');
 var ClientActions = require('../actions/client_actions.js');
+var UploadButton = require('./upload_button');
 
 module.exports = React.createClass({
   getInitialState: function () {
-    return ({ description: "" });
+    return ({ image_url: "", description: "" });
   },
 
-  descriptionChange: function (event) {
+  addImage: function (url) {
+    this.setState({ image_url: url });
+  },
+
+  addDescription: function (event) {
     var newDescription = event.target.value;
     this.setState({ description: newDescription });
   },
@@ -14,10 +19,13 @@ module.exports = React.createClass({
   handleSubmit: function (event) {
     event.preventDefault();
     var postData = {
-      description: this.state.description
+      description: this.state.description,
+      image_url: this.state.image_url,
+      author_id: currentUserId
     };
     ClientActions.createPost(postData);
-    this.setState({ description: "" });
+    this.setState({ image_url: "", description: ""});
+    this.props.callback();
   },
 
   render: function () {
@@ -25,16 +33,19 @@ module.exports = React.createClass({
       <div className="modal-form-wrapper">
         <h3>New Post</h3>
         <form className="post-form" onSubmit={this.handleSubmit}>
-          <textarea
-            onChange={this.descriptionChange} 
-            value={this.state.description}
-            placeholder="Add a description" />
 
-          <br /><br />
+          <UploadButton addImage={this.addImage}/>
+
+          <textarea
+            onChange={this.addDescription} 
+            value={this.state.description}
+            placeholder="Add a description"/>
+
+          <br/><br/>
 
           <input className="submit-button" 
                  type="submit" 
-                 value="Create Post" />
+                 value="Create Post"/>
         </form>
       </div>
     );

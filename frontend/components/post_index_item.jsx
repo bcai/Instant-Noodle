@@ -14,7 +14,7 @@ module.exports = React.createClass({
     Modal.setAppElement("body");
   },
 
-  editPost: function (event) {
+  openEditModal: function (event) {
     event.preventDefault();
     this.setState({showForm: true});
   },
@@ -30,7 +30,7 @@ module.exports = React.createClass({
 
     if (post.author.id === currentUserId){
       editable = "post editable"
-      var editButton = <button className="submit-button editable" onClick={this.editPost}></button>;
+      var editButton = <button className="submit-button editable" onClick={this.openEditModal}></button>;
     } else {
       var editButton = "";
     }
