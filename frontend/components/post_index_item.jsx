@@ -36,7 +36,9 @@ module.exports = React.createClass({
 
     if (post.age){
       var age = post.age.replace("about", "");
-      if (age.indexOf(" hours") !== -1){
+
+      if (age.indexOf("less than a minute") !== -1){
+      } else if (age.indexOf(" hours") !== -1){
         age = age.replace(" hours", "h");
       } else if (age.indexOf(" day") !== -1){
         age = age.replace(" day", "d");
