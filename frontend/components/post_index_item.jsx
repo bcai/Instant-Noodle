@@ -3,6 +3,7 @@ var Link = require('react-router').Link;
 var ClientActions = require('../actions/client_actions.js');
 var PostEdit = require('./post_edit');
 var CommentIndex = require('./comment_index');
+var CommentForm = require('./comment_form');
 var Modal = require('react-modal');
 
 module.exports = React.createClass({
@@ -73,7 +74,7 @@ module.exports = React.createClass({
         </p>
         <div>
           <CommentIndex postId={post.id}/>
-          <p>CommentForm</p>
+          <CommentForm postId={post.id}/>
         </div>
         <br/><br/>
 

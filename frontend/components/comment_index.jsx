@@ -30,7 +30,7 @@ module.exports = React.createClass({
 
     return (
       <div id="comment-index-container">
-        <ul ckassName="comment-index">
+        <ul className="comment-index">
           {comments}
         </ul>
       </div>

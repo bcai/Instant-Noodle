@@ -10,7 +10,6 @@ module.exports = React.createClass({
 
   render: function() {
     var comment = this.props.comment;
-
     if (comment.user.id === currentUserId){
       var deleteButton = (<button className="deletable" onClick={this.removeComment}>X</button>);
     } else {

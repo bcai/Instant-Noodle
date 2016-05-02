@@ -22,18 +22,18 @@ var setPost = function (post) {
 
 var setComment = function (comment) {
   _posts[comment.post_id].comments.push(comment);
-  PostStore.__emitChange(); 
-}
+  PostStore.__emitChange();
+};
 
 var deleteComment = function (comment) {
   var currentPostComments = _posts[comment.post_id].comments;
   currentPostComments.splice(currentPostComments.indexOf(comment),1);
   PostStore.__emitChange();
-}
+};
 
 PostStore.comments = function(id){
   return _posts[id].comments;
-}
+};
 
 PostStore.all = function () {
   return Object.keys(_posts).map(function (postId) {
@@ -56,6 +56,7 @@ PostStore.__onDispatch = function (payload) {
       break;
     case PostConstants.COMMENT_RECEIVED:
       setComment(payload.comment);
+      break;
     case PostConstants.COMMENT_DELETED:
       deleteComment(payload.comment);
       break;
