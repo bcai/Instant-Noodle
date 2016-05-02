@@ -103,9 +103,9 @@ user interface.
 
 **Objective:** Comments belong to Posts, and can be viewed in PostsIndex.
 
-- [ ] create `Comments` model
+- [X] create `Comments` model
 - build out API, Flux loop, and components for:
-  - [ ] Comment CRUD
+  - [X] Comment CRUD
   - [ ] commenting requires a logged-in "follower"
   - [ ] Comment Form is available in all posts.
 - [ ] Style comment components
