@@ -24,9 +24,9 @@ Instant Noodle will allow users to do the following:
 progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [x] Create an account (MVP)
-- [ ] Log in / Log out, including as a Guest/Demo User (MVP)
-- [ ] Create, edit, and delete posts (MVP)
-- [ ] Organize posts into collections (MVP)
+- [X] Log in / Log out, including as a Guest/Demo User (MVP)
+- [X] Create, edit, and delete posts (MVP)
+- [X] Organize posts into collections (MVP)
 - [ ] View, comment, and like other users' posts (MVP)
 - [ ] Edit Profile (expected feature, not MVP)
 - [ ] Optional Recipe Form (bonus feature, not MVP)
@@ -81,10 +81,8 @@ user interface.
 - implement each post component, building out the flux loop as needed.
   - [x] `PostsIndex`
   - [x] `PostIndexItem`
-  - [ ] `PostForm`
+  - [X] `PostForm`
   - [X] `PostEdit` Modal
-- [ ] save Posts to the DB when the form loses focus or is left idle
-  after editing.
 
 ### Phase 4: Start Styling (1 days)
 

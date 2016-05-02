@@ -40,14 +40,21 @@ module.exports = React.createClass({
       if (age.indexOf("less than a minute") !== -1){
       } else if (age.indexOf(" hours") !== -1){
         age = age.replace(" hours", "h");
+      } else if (age.indexOf(" hour") !== -1){
+        age = age.replace(" hour", "h");
       } else if (age.indexOf(" day") !== -1){
         age = age.replace(" day", "d");
       } else if (age.indexOf(" minutes") !== -1){
         age = age.replace(" minutes", "m");
       } else if (age.indexOf(" minute") !== -1){ 
         age = age.replace(" minute", "m");
+      } else if (age.indexOf(" weeks") !== -1){
+        age = age.replace(" weeks", "w");
+      } else if (age.indexOf(" week") !== -1){
+        age = age.replace(" week", "w");
       }
     }
+
     return (
       <li className={editable}>
         <div className="post-header group">
