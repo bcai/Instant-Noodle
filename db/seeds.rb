@@ -7,13 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!([
-  {username: 'guest', full_name: "Guest", password: "password"}
+  {username: 'guest', full_name: "Guest", password: "password"},
   {username: 'bcai', full_name: "Brando Cai", password: "password"},
   {username: 'dtru', full_name: "Devina Tru", password: "password"},
   {username: 'dtruong', full_name: "Dev Tru", password: "password"},
   {username: 'branderf', full_name: "Brandino Acai", password: "password"},
   {username: 'bderf', full_name: "Bran Don", password: "password"},
-  {username: 'bDiddy', full_name: "DonBranCai", password: "password"},
+  {username: 'bDiddy', full_name: "DonBranCai", password: "password"}
 ])
 
 Post.create!([
