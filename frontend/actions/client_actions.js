@@ -1,6 +1,9 @@
 var ApiUtil = require('../util/api_util.js');
 
 module.exports = {
+
+  // POSTS
+
   fetchAllPosts: function () {
     ApiUtil.fetchAllPosts();
   },
@@ -16,6 +19,20 @@ module.exports = {
   updatePost: function (data) {
     ApiUtil.updatePost(data);
   },
+
+
+  // COMMENTS
+
+  createComment: function(data) {
+    ApiUtil.createComment(data);
+  },
+
+  deleteComment: function(id) {
+    ApiUtil.deleteComment(id);
+  },
+
+
+  // LOGOUT
 
   destroySession: function() {
     ApiUtil.destroySession();

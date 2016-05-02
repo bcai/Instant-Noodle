@@ -1,6 +1,9 @@
 var ServerActions = require('../actions/server_actions.js');
 
 module.exports = {
+
+  // POSTS
+
   fetchAllPosts: function () {
     $.ajax({
       type: 'GET',
@@ -43,6 +46,35 @@ module.exports = {
       }
     });
   },
+
+
+  // COMMENTS
+
+  createComment: function (data) {
+    $.ajax({
+      type: "POST",
+      url: "api/comments/" + data.id,
+      data: { comment: { body: data.body,
+                         post_id: data.post_id,
+                         user_id: data.user_id } },
+      success: function (comment) {
+        ServerActions.receiveComment(comment);
+      }
+    });
+  },
+
+  deleteComment: function (id) {
+    $.ajax({
+      type: "DELETE",
+      url: "api/comments/" + id,
+      success: function(comment){
+        ServerActions.deleteComment(comment);
+      }
+    });
+  },
+
+
+  // LOGOUT
 
   destroySession: function(){
     $.ajax({

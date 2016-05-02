@@ -23,3 +23,9 @@ Post.create!([
   {description: 'Spaghetti #simple #delicious', author_id: 2, image_url: 'http://res.cloudinary.com/bcai/image/upload/s--HcIipXJe--/q_50/v1462156331/photo-1458644267420-66bc8a5f21e4_wavmps.webp'},
   {description: 'Soup of the day', author_id: 2, image_url: 'http://res.cloudinary.com/bcai/image/upload/s--gwl6gtra--/q_50/v1462156129/photo-1449793079811-bc4bcd990abf_hiwd1y.webp'}
 ])
+
+Comment.create!([
+  {body: "Where is this at?", post_id: 5, user_id: 4},
+  {body: "Souplantation dude!", post_id: 5, user_id: 2},
+  {body: "I like boysenberry more :P", post_id: 3, user_id: 2}
+])

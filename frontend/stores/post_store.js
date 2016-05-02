@@ -20,6 +20,21 @@ var setPost = function (post) {
   PostStore.__emitChange();
 };
 
+var setComment = function (comment) {
+  _posts[comment.post_id].comments.push(comment);
+  PostStore.__emitChange(); 
+}
+
+var deleteComment = function (comment) {
+  var currentPostComments = _posts[comment.post_id].comments;
+  currentPostComments.splice(currentPostComments.indexOf(comment),1);
+  PostStore.__emitChange();
+}
+
+PostStore.comments = function(id){
+  return _posts[id].comments;
+}
+
 PostStore.all = function () {
   return Object.keys(_posts).map(function (postId) {
     return _posts[postId];
@@ -38,6 +53,11 @@ PostStore.__onDispatch = function (payload) {
       break;
     case PostConstants.POST_RECEIVED:
       setPost(payload.post);
+      break;
+    case PostConstants.COMMENT_RECEIVED:
+      setComment(payload.comment);
+    case PostConstants.COMMENT_DELETED:
+      deleteComment(payload.comment);
       break;
   }
 };

@@ -38,7 +38,7 @@ module.exports = React.createClass({
 
   render: function () {
     var posts =  this.state.posts.map(function (post) {
-      return (<PostIndexItem key={post.id} post={post} />);
+      return (<PostIndexItem key={post.id} post={post}/>);
     });
 
     return (

@@ -2,6 +2,7 @@ var React = require('react');
 var Link = require('react-router').Link;
 var ClientActions = require('../actions/client_actions.js');
 var PostEdit = require('./post_edit');
+var CommentIndex = require('./comment_index');
 var Modal = require('react-modal');
 
 module.exports = React.createClass({
@@ -70,6 +71,10 @@ module.exports = React.createClass({
           <span><a href="#">{post.author.username}</a></span>  
           {post.description}
         </p>
+        <div>
+          <CommentIndex postId={post.id}/>
+          <p>CommentForm</p>
+        </div>
         <br/><br/>
 
         <Modal className="modal" isOpen={this.state.showForm}>
