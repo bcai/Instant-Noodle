@@ -80,19 +80,13 @@ PostStore.likeId = function (post_id, user_id){
 
 PostStore.likeCount = function (id){
   return _posts[id].likes.length;
-}
+};
 
 PostStore.isLiked = function(post_id, user_id){
-  if (_posts[post_id].likes.includes(user_id)) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-PostStore.findLike = function(post_id, user_id){
-
-}
+  return _posts[post_id].likes.some(function(like) {
+    return like.user_id == user_id;
+  });
+};
 
 PostStore.__onDispatch = function (payload) {
   switch (payload.actionType) {

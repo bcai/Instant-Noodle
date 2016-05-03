@@ -8,23 +8,25 @@ module.exports = React.createClass({
     return { isLiked: PostStore.isLiked(this.props.postId, currentUserId) };
   },
 
+  componentDidMount: function() {
+    this.likeButtonListener = PostStore.addListener(this._onChange);
+  },
+
   removeLike: function(id){
     var like = PostStore.likeId(this.props.postId, currentUserId);
     ClientActions.deleteLike(like);
+  },
+
+  _onChange: function() {
+    this.setState({ isLiked: PostStore.isLiked(this.props.postId, currentUserId) });
   },
 
   changeLike: function(event) {
     event.preventDefault();
 
     if (this.state.isLiked){
-
-      this.setState({isLiked: false});
       ClientActions.deleteLike(PostStore.likeId(this.props.postId, currentUserId));
-
     } else {
-
-      this.setState({isLiked: true});
-
       var likeData = {
         post_id: parseInt(this.props.postId),
         user_id: currentUserId
