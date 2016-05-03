@@ -113,7 +113,7 @@ user interface.
 
 **Objective:** Posts can be liked by other followers.
 
-- [ ] create `Likes` model
+- [X] create `Likes` model
 - build out API, Flux loop, and components for:
   - [ ] Like CRUD
   - [ ] Liking a post requires a logged-in "follower"

@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :api do
+  get 'likes/create'
+  end
+
+  namespace :api do
+  get 'likes/destroy'
+  end
+
   get 'comments/create'
 
   get 'comments/destroy'

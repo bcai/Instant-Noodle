@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
     class_name: :Post
 
   has_many :comments
+  has_many :likes
 
   attr_reader :password
 
