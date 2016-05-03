@@ -106,9 +106,8 @@ user interface.
 - [X] create `Comments` model
 - build out API, Flux loop, and components for:
   - [X] Comment CRUD
-  - [ ] commenting requires a logged-in "follower"
   - [X] Comment Form is available in all posts.
-- [ ] Style comment components
+- [X] Style comment components
 
 ### Phase 6: Likes (1 days)
 

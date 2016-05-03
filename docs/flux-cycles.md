@@ -64,17 +64,20 @@ what you'll need to do.
 
 * `createComment`
   0. invoked from `onEnter`
-  0. `POST /api/posts/:id/comments` is called.
+  0. `POST /api/comments` is called.
   0. `receiveComment` is set as the callback.
 
-* `destroyComment`
+* `deleteComment`
   0. invoked from 'onClick'
-  0. `DELETE /api/posts/:id/comments/:id` is called.
-  0. `removeComment` is set as the callback.
+  0. `DELETE /api/comments/:id` is called.
+  0. `deleteComment` is set as the callback.
 
 ### Comments API Response Actions
+* `receiveComment`
+  0. invoked from an API callback.
+  0. `PostStore` sets `_posts[id].comments[:id]` and emits change.
 
-* `removeComment`
+* `deleteComment`
   0. invoked from an API callback.
   0. `PostStore` removes `_posts[id].comments[:id]` and emits change.
 
@@ -85,15 +88,18 @@ what you'll need to do.
 
 * `createLike`
   0. invoked from `onEnter`
-  0. `POST /api/posts/:id/likes` is called.
+  0. `POST /api/likes` is called.
   0. `receiveLike` is set as the callback.
 
-* `destroyLike`
+* `deleteLike`
   0. invoked from 'onClick'
-  0. `DELETE /api/posts/:id/comments/:id` is called.
+  0. `DELETE /api/likes/:id` is called.
   0. `removeLike` is set as the callback.
 
 ### Comments API Response Actions
+* `receiveLike`
+  0. invoked from an API callback.
+  0. `PostStore` sets `_posts[id].likes[:id]` and emits change.
 
 * `removeLike`
   0. invoked from an API callback.

@@ -30,12 +30,12 @@
 
 ### Comments
 
-- `GET /api/posts/:id/comments`
-- `POST /api/posts/:id/comments`
-- `DELETE /api/posts/:id/comment/:id`
+- `GET /api/comments`
+- `POST /api/comments`
+- `DELETE /api/comment/:id`
 
 ### Likes
 
-- `GET /api/posts/:id/likes`
-- `POST /api/posts/:id/likes`
-- `DELETE /api/posts/:id/likes/:id`
+- `GET /api/likes`
+- `POST /api/likes`
+- `DELETE /api/likes/:id`
