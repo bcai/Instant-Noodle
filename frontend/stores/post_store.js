@@ -27,7 +27,11 @@ var setComment = function (comment) {
 
 var deleteComment = function (comment) {
   var currentPostComments = _posts[comment.post_id].comments;
-  currentPostComments.splice(currentPostComments.indexOf(comment),1);
+  var commentIndex = currentPostComments.findIndex(function(c){
+    return (c.id == comment.id);
+  });
+  debugger
+  currentPostComments.splice(commentIndex,1);
   PostStore.__emitChange();
 };
 
