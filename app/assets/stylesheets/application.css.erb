@@ -347,9 +347,54 @@ ul {
   font-size: 14px;
 }
 
+.post hr {
+  width: 91.4%;
+  border: 1px solid #eeefef;
+  margin-top:17px;
+  margin-bottom: 0px;
+}
+
 /* COMMENTS */
+.comment {
+  -moz-transition: all .15s ease-in;
+  -o-transition: all .15s ease-in;
+  -webkit-transition: all .15s ease-in;
+  transition: background .15s ease-in;
+  background-color: #fff;
+}
+.comment:hover {
+  -moz-transition: all .15s ease-in;
+  -o-transition: all .15s ease-in;
+  -webkit-transition: all .15s ease-in;
+  transition: background .15s ease-in;
+  background-color: #fbe3e4;
+}
 .comment p {
-  padding: 10px 25px 0 25px ; 
+  padding: 5px 50px 5px 25px ; 
+}
+.deletable {
+  float: right;
+  color: grey;
+  margin-right: -27px;
+}
+.deletable:hover{
+  cursor: pointer;
+}
+.comment-form {
+  float: left;
+  width: 100%;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+.comment-form input {
+  border: none;
+  width:70%;
+  margin-left:50px;
+  padding: 10px;
+  font-weight: 400;
+  font-family: "Helvetica-Neue", sans-serif;
+  font-size: 14px;
+  color: black;
 }
 
 

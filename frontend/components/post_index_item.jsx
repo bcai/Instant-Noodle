@@ -74,6 +74,7 @@ module.exports = React.createClass({
         </p>
         <div>
           <CommentIndex postId={post.id}/>
+          <hr/>
           <CommentForm postId={post.id}/>
         </div>
         <br/><br/>

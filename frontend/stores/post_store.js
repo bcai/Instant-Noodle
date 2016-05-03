@@ -30,7 +30,6 @@ var deleteComment = function (comment) {
   var commentIndex = currentPostComments.findIndex(function(c){
     return (c.id == comment.id);
   });
-  debugger
   currentPostComments.splice(commentIndex,1);
   PostStore.__emitChange();
 };

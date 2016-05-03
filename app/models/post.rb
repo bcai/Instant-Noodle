@@ -6,4 +6,8 @@ class Post < ActiveRecord::Base
     class_name: :User
 
   has_many :comments
+
+  def ordered_comments
+    Comment.where(post_id: self.id).order(:created_at)
+  end
 end
