@@ -8,7 +8,6 @@ module.exports = React.createClass({
   getInitialState: function () {
     var potentialPost = PostStore.find(this.props.postId);
     var post = potentialPost ? potentialPost : {};
-    console.log("post: " + post);
     return ({ description: post.description, 
               imageUrl: post.image_url, });
   },

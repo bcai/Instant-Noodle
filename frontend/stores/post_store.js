@@ -6,6 +6,8 @@ var PostStore = new Store(AppDispatcher);
 
 var _posts = {};
 
+// POSTS
+
 var resetPosts = function (posts) {
   _posts = {};
 
@@ -20,24 +22,6 @@ var setPost = function (post) {
   PostStore.__emitChange();
 };
 
-var setComment = function (comment) {
-  _posts[comment.post_id].comments.push(comment);
-  PostStore.__emitChange();
-};
-
-var deleteComment = function (comment) {
-  var currentPostComments = _posts[comment.post_id].comments;
-  var commentIndex = currentPostComments.findIndex(function(c){
-    return (c.id == comment.id);
-  });
-  currentPostComments.splice(commentIndex,1);
-  PostStore.__emitChange();
-};
-
-PostStore.comments = function(id){
-  return _posts[id].comments;
-};
-
 PostStore.all = function () {
   return Object.keys(_posts).map(function (postId) {
     return _posts[postId];
@@ -48,6 +32,67 @@ PostStore.find = function (id) {
   return _posts[id];
 };
 
+
+// COMMENTS
+
+var setComment = function (comment) {
+  _posts[comment.post_id].comments.push(comment);
+  PostStore.__emitChange();
+};
+
+var removeComment = function (comment) {
+  var currentPostComments = _posts[comment.post_id].comments;
+  var commentIndex = currentPostComments.findIndex(function(storeComment){
+    return (storeComment.id == comment.id);
+  });
+  currentPostComments.splice(commentIndex,1);
+  PostStore.__emitChange();
+};
+
+PostStore.comments = function (id){
+  return _posts[id].comments;
+};
+
+
+// LIKES
+
+var setLike = function (like) {
+  _posts[like.post_id].likes.push(like);
+  PostStore.__emitChange();
+};
+
+var removeLike = function (like) {
+  var currentPostLikes = _posts[like.post_id].likes;
+  var likeIndex = currentPostLikes.findIndex(function(storeLike){
+    return (storeLike.id == like.id);
+  });
+  currentPostLikes.splice(likeIndex,1);
+  PostStore.__emitChange();
+};
+
+PostStore.likeId = function (post_id, user_id){
+  var likeIndex = _posts[post_id].likes.findIndex(function(storeLike){
+    return ((storeLike.post_id == post_id) && (storeLike.user_id == user_id));
+  })
+
+  return _posts[post_id].likes[likeIndex].id;
+};
+
+PostStore.likeCount = function (id){
+  return _posts[id].likes.length;
+}
+
+PostStore.isLiked = function(post_id, user_id){
+  if (_posts[post_id].likes.includes(user_id)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+PostStore.findLike = function(post_id, user_id){
+
+}
 
 PostStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
@@ -60,8 +105,14 @@ PostStore.__onDispatch = function (payload) {
     case PostConstants.COMMENT_RECEIVED:
       setComment(payload.comment);
       break;
-    case PostConstants.COMMENT_DELETED:
-      deleteComment(payload.comment);
+    case PostConstants.COMMENT_REMOVED:
+      removeComment(payload.comment);
+      break;
+    case PostConstants.LIKE_RECEIVED:
+      setLike(payload.like);
+      break;
+    case PostConstants.LIKE_REMOVED:
+      removeLike(payload.like);
       break;
   }
 };

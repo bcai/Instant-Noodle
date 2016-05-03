@@ -54,9 +54,10 @@ module.exports = {
     $.ajax({
       type: "POST",
       url: "api/comments",
-      data: { comment: { body: data.body,
-                         post_id: data.post_id,
-                         user_id: data.user_id } },
+      data: { comment: { 
+        body: data.body,
+        post_id: data.post_id,
+        user_id: data.user_id } },
       success: function (comment) {
         ServerActions.receiveComment(comment);
       }
@@ -67,8 +68,34 @@ module.exports = {
     $.ajax({
       type: "DELETE",
       url: "api/comments/" + id,
-      success: function(comment){
-        ServerActions.deleteComment(comment);
+      success: function (comment){
+        ServerActions.removeComment(comment);
+      }
+    });
+  },
+
+
+  // LIKES
+
+  createLike: function (data) {
+    $.ajax({
+      type: "POST",
+      url: "api/likes",
+      data: { like: { 
+        post_id: data.post_id,
+        user_id: data.user_id } },
+      success: function (like) {
+        ServerActions.receiveLike(like);
+      }
+    });
+  },
+
+  deleteLike: function (id) {
+    $.ajax({
+      type: "DELETE",
+      url: "api/likes/" + id,
+      success: function (like) {
+        ServerActions.removeLike(like);
       }
     });
   },

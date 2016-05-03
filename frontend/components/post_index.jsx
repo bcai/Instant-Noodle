@@ -50,7 +50,7 @@ module.exports = React.createClass({
           <img src="/assets/symbol.png"/>
         </button>
 
-        <Modal className="modal" isOpen={this.state.showForm}>
+        <Modal className="modal" onRequestClose={this.closeModal} isOpen={this.state.showForm}>
           <PostForm callback={this.closeModal}/>
           <button className="submit-button close-button" onClick={this.closeModal}>Close</button>
         </Modal>

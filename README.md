@@ -115,9 +115,9 @@ user interface.
 
 - [X] create `Likes` model
 - build out API, Flux loop, and components for:
-  - [ ] Like CRUD
-  - [ ] Liking a post requires a logged-in "follower"
-  - [ ] Like Button is available in all posts.
+  - [X] Like CRUD
+  - [X] Liking a post requires a logged-in "follower"
+  - [X] Like Button is available in all posts.
 - [ ] Style new elements
 
 ### Phase 7: Create User Detail/Form Components (1.5 days)

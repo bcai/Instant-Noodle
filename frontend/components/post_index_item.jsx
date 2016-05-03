@@ -4,6 +4,8 @@ var ClientActions = require('../actions/client_actions.js');
 var PostEdit = require('./post_edit');
 var CommentIndex = require('./comment_index');
 var CommentForm = require('./comment_form');
+var LikeCounter = require('./like_counter');
+var LikeButton = require('./like_button');
 var Modal = require('react-modal');
 
 module.exports = React.createClass({
@@ -57,6 +59,7 @@ module.exports = React.createClass({
       }
     }
 
+
     return (
       <li className={editable}>
         <div className="post-header group">
@@ -68,6 +71,9 @@ module.exports = React.createClass({
         </div>
         <img src={post.image_url}/>
         <br/>
+
+        <LikeCounter postId={post.id}/>
+
         <p>
           <span><a href="#">{post.author.username}</a></span>  
           {post.description}
@@ -75,11 +81,12 @@ module.exports = React.createClass({
         <div>
           <CommentIndex postId={post.id}/>
           <hr/>
+          <LikeButton postId={post.id}/>
           <CommentForm postId={post.id}/>
         </div>
         <br/><br/>
 
-        <Modal className="modal" isOpen={this.state.showForm}>
+        <Modal className="modal" onRequestClose={this.closeModal} isOpen={this.state.showForm}>
           <PostEdit postId={post.id} callback={this.closeModal}/>
           <button className="submit-button close-button" onClick={this.closeModal}>Close</button>
         </Modal>

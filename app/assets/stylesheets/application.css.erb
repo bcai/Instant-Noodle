@@ -23,7 +23,7 @@
 
 /* RESET */
 
-html, body, section, article, h1, h2, h3, p, strong, em, a, div, ul{
+html, body, section, article, h1, h2, h3, p, strong, em, a, div, ul {
   margin: 0;
   border: 0;
   padding: 0;
@@ -34,6 +34,12 @@ html, body, section, article, h1, h2, h3, p, strong, em, a, div, ul{
   text-decoration: inherit;
   color: inherit;
   background: transparent;
+}
+button {
+  outline: none;
+}
+input:focus {
+  outline: none;
 }
 
 /* SHARED */
@@ -376,9 +382,22 @@ ul {
   float: right;
   color: grey;
   margin-right: -27px;
+  border-radius: 10px;
+}
+.deletable {
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid lightgrey;
 }
 .deletable:hover{
   cursor: pointer;
+}
+button.deletable:focus{
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid lightgrey;
+  outline: none;
+
 }
 .comment-form {
   float: left;

@@ -23,12 +23,23 @@ module.exports = {
 
   // COMMENTS
 
-  createComment: function(data) {
+  createComment: function (data) {
     ApiUtil.createComment(data);
   },
 
-  deleteComment: function(id) {
+  deleteComment: function (id) {
     ApiUtil.deleteComment(id);
+  },
+  
+
+  // LIKES
+
+  createLike: function (data) {
+    ApiUtil.createLike(data);
+  },
+
+  deleteLike: function (id) {
+    ApiUtil.deleteLike(id);
   },
 
 

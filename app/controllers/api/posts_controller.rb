@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
   before_action :require_user_signed_in!
 
   def index
-    @posts = Post.includes(:author, comments: :user)
+    @posts = Post.includes(:author, comments: :user, likes: :user)
   end
 
   def show

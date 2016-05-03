@@ -70,14 +70,14 @@ what you'll need to do.
 * `deleteComment`
   0. invoked from 'onClick'
   0. `DELETE /api/comments/:id` is called.
-  0. `deleteComment` is set as the callback.
+  0. `removeComment` is set as the callback.
 
 ### Comments API Response Actions
 * `receiveComment`
   0. invoked from an API callback.
   0. `PostStore` sets `_posts[id].comments[:id]` and emits change.
 
-* `deleteComment`
+* `removeComment`
   0. invoked from an API callback.
   0. `PostStore` removes `_posts[id].comments[:id]` and emits change.
 
