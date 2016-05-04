@@ -4,5 +4,27 @@ var AppDispatcher = require('../dispatcher/dispatcher.js');
 
 var UserStore = new Store(AppDispatcher);
 
-var _users = {};
+var _user = {};
 
+
+var resetUser = function (user) {
+  _user = {};
+  _user = user;
+  PostStore.__emitChange();
+}
+
+PostStore.user = function () {
+  return _user;
+}
+
+
+UserStore.__onDispatch = function (payload) {
+  switch (payload.actionType) {
+    case UserConstants.USER_RECEIVED:
+      resetUser(payload.user);
+      break;
+  }
+};
+
+
+module.exports = UserStore

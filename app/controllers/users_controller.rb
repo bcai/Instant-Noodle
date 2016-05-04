@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id]).includes(:posts)
-    @posts = @user.posts
+    render json: @user
   end
 
   private
