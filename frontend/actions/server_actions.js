@@ -1,5 +1,6 @@
 var AppDispatcher = require('../dispatcher/dispatcher.js');
 var PostConstants = require('../constants/post_constants.js');
+var UserConstants = require('../constants/user_constants.js');
 
 module.exports = {
 
@@ -56,10 +57,10 @@ module.exports = {
 
   // USER DETAIL
 
-  receveAllPostsByUser: function (posts) {
+  receiveUser: function (user) {
     AppDispatcher.dispatch({
-      actionType: PostConstants.USER_POSTS_RECEIVED,
-      posts: posts
+      actionType: UserConstants.USER_RECEIVED,
+      user: user
     })
   }
 };

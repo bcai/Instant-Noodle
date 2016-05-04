@@ -92,17 +92,6 @@ PostStore.isLiked = function(post_id, user_id){
   });
 };
 
-// USER DETAIL
-
-var resetUserPosts = function (posts) {
-  _posts = {};
-
-  posts.forEach(function (post) {
-    _posts[post.id] = post;
-  });
-  PostStore.__emitChange(); 
-};
-
 
 
 
@@ -127,9 +116,6 @@ PostStore.__onDispatch = function (payload) {
       break;
     case PostConstants.LIKE_REMOVED:
       removeLike(payload.like);
-      break;
-    case PostConstants.USER_POSTS_RECEIVED:
-      resetUserPosts(payload.posts);
       break;
   }
 };

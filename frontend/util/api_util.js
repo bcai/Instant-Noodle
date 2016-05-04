@@ -67,7 +67,7 @@ module.exports = {
   deleteComment: function (id) {
     $.ajax({
       type: "DELETE",
-      url: "api/comments/" + id,
+      url: "api/comments/" + id.toString(),
       success: function (comment){
         ServerActions.removeComment(comment);
       }
@@ -93,9 +93,22 @@ module.exports = {
   deleteLike: function (id) {
     $.ajax({
       type: "DELETE",
-      url: "api/likes/" + id,
+      url: "api/likes/" + id.toString(),
       success: function (like) {
         ServerActions.removeLike(like);
+      }
+    });
+  },
+
+  // USER DETAIL 
+
+  fetchUser: function(id) {
+    $.ajax({
+      type: 'GET',
+      url: "/users/" + id.toString(),
+      success: function (user) {
+        ServerActions.receiveUser(user);
+        ServerActions.receiveAllPosts(user.posts);
       }
     });
   },
@@ -110,18 +123,6 @@ module.exports = {
       success:
         location = '/session/new'
     });
-  },
-
-  // USER DETAIL 
-
-  fetchAllPostsByUser: function(id) {
-    $.ajax({
-      type: 'GET',
-      url: "api/posts",
-      data: { user_id: id },
-      success: function (posts) {
-        ServerActions.receiveAllPostsByUser(posts);
-      }
-    });
   }
+
 };

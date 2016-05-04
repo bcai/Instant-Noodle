@@ -15,8 +15,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id]).includes(:posts)
-    render json: @user
+    @user = User.find(params[:id])
+    @posts = @user.posts
+    render "show.json.jbuilder"
   end
 
   private

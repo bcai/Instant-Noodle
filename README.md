@@ -124,8 +124,7 @@ user interface.
 
 **objective:** Enable stats for user as well as user posts to be displayed
 
-- [ ] Display counts for follows, followers, and posts
-- [ ] Create a form for editing user profile.
+- [ ] Display username, full name, counts for posts
 - [ ] Filter posts to only display user's own posts.
 - [ ] CSS Styling
 

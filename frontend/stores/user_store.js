@@ -10,10 +10,10 @@ var _user = {};
 var resetUser = function (user) {
   _user = {};
   _user = user;
-  PostStore.__emitChange();
+  UserStore.__emitChange();
 }
 
-PostStore.user = function () {
+UserStore.user = function () {
   return _user;
 }
 

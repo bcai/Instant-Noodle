@@ -17,7 +17,10 @@ module.exports = React.createClass({
 
   componentDidMount: function () {
     this.postListener = PostStore.addListener(this.getPostsFromStore);
-    ClientActions.fetchAllPosts();
+    if(this.props.userDetail){
+    } else {
+      ClientActions.fetchAllPosts();
+    }
   },
 
   componentWillUnmount: function () {

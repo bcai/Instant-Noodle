@@ -9,8 +9,7 @@ var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 var ClientActions = require('./actions/client_actions.js'),
     PostIndex = require('./components/post_index.jsx'),
-    // PostShow = require('./components/postShow.jsx'),
-    PostEdit = require('./components/post_edit.jsx');
+    UserDetail =require('./components/user_detail.jsx');
 
 var App = React.createClass({
   render: function() {
@@ -58,9 +57,9 @@ var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={PostIndex}/>
     <Route path="posts" component={PostIndex}/>
+    <Route path="users/:userId" component={UserDetail}/>
   </Route>
 );
-    // <Route path="users/:userId" component={UserDetail}/>
 
 document.addEventListener("DOMContentLoaded", function(){
   var root = document.getElementById("root");

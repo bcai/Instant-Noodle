@@ -43,15 +43,21 @@ module.exports = {
   },
 
 
+  // USER DETAIL
+
+  fetchUser: function (id) {
+    ApiUtil.fetchUser(id);
+  },
+
+  fetchAllPostsByUser: function(id) {
+    ApiUtil.fetchAllPostsByUser(id);
+  },
+
+
   // LOGOUT
 
   destroySession: function() {
     ApiUtil.destroySession();
-  },
-
-  // USER DETAIL
-
-  fetchAllPostsByUser: function(id) {
-    ApiUtil.fetchAllPostsbyUser(id);
   }
+
 };
