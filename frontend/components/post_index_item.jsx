@@ -63,7 +63,7 @@ module.exports = React.createClass({
     return (
       <li className={editable}>
         <div className="post-header group">
-          <div id="post-author"><a href="#">{post.author.username}</a></div>
+          <div id="post-author"><a href="#/users/1">{post.author.username}</a></div>
           <ul>
             <div id="post-age">{age}</div>
             {editButton}

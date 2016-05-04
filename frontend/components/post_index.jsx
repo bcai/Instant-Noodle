@@ -17,8 +17,8 @@ module.exports = React.createClass({
 
   componentDidMount: function () {
     this.postListener = PostStore.addListener(this.getPostsFromStore);
-    if(this.props.userDetail){
-    } else {
+
+    if(!this.props.userDetail){
       ClientActions.fetchAllPosts();
     }
   },

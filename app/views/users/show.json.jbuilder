@@ -1,9 +1,9 @@
 json.extract! @user, :id, :username, :full_name 
 json.posts @posts do |post|
   json.id post.id
-  json.author post.author, :id, :username
   json.image_url post.image_url
   json.description post.description
+  json.author post.author, :id, :username
 
   json.likes post.likes do |like|
   json.id like.id

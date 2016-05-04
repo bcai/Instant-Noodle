@@ -17,6 +17,10 @@ module.exports = React.createClass({
     ClientActions.deleteLike(like);
   },
 
+  componentWillUnmount: function() {
+    this.likeButtonListener.remove();
+  },
+
   _onChange: function() {
     this.setState({ isLiked: PostStore.isLiked(this.props.postId, currentUserId) });
   },
@@ -36,7 +40,7 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var buttonIcon = "&#128420";
+    var buttonIcon = <p>&#128420;</p>;
     if (this.state.isLiked){
       buttonIcon = "";
     }
