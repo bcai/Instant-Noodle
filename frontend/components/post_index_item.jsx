@@ -59,11 +59,12 @@ module.exports = React.createClass({
       }
     }
 
-
     return (
       <li className={editable}>
         <div className="post-header group">
-          <div id="post-author"><a href="#/users/1">{post.author.username}</a></div>
+            <div id="post-author">
+              <Link to={"/users/" + post.author.id}>{post.author.username}</Link>
+            </div>
           <ul>
             <div id="post-age">{age}</div>
             {editButton}
@@ -75,7 +76,9 @@ module.exports = React.createClass({
         <LikeCounter postId={post.id}/>
 
         <p>
-          <span><a href="#">{post.author.username}</a></span>  
+          <span>
+            <Link to={"/users/" + post.author.id}>{post.author.username}</Link>
+          </span>  
           {post.description}
         </p>
         <div className="comment-section group">

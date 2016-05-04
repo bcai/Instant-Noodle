@@ -1,5 +1,6 @@
 var React = require('react');
 var ClientActions = require('../actions/client_actions.js');
+var Link = require('react-router').Link;
 
 module.exports = React.createClass({
 
@@ -19,7 +20,9 @@ module.exports = React.createClass({
     return (
       <li className="comment">
         <p>
-          <span id="comment-author"><a href="#">{comment.user.username}</a></span>
+          <span id="comment-author">
+            <Link to={"/users/" + comment.user.id}>{comment.user.username}</Link>
+          </span>
           {comment.body}
           {deleteButton}
         </p>
