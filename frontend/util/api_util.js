@@ -110,5 +110,18 @@ module.exports = {
       success:
         location = '/session/new'
     });
+  },
+
+  // USER DETAIL 
+
+  fetchAllPostsByUser: function(id) {
+    $.ajax({
+      type: 'GET',
+      url: "api/posts",
+      data: { user_id: id },
+      success: function (posts) {
+        ServerActions.receiveAllPostsByUser(posts);
+      }
+    });
   }
 };

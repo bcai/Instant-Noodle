@@ -51,5 +51,15 @@ module.exports = {
       actionType: PostConstants.LIKE_REMOVED,
       like: like
     })
+  },
+
+
+  // USER DETAIL
+
+  receveAllPostsByUser: function (posts) {
+    AppDispatcher.dispatch({
+      actionType: PostConstants.USER_POSTS_RECEIVED,
+      posts: posts
+    })
   }
 };

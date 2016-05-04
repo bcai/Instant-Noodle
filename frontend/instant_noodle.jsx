@@ -60,6 +60,7 @@ var routes = (
     <Route path="posts" component={PostIndex}/>
   </Route>
 );
+    // <Route path="users/:userId" component={UserDetail}/>
 
 document.addEventListener("DOMContentLoaded", function(){
   var root = document.getElementById("root");

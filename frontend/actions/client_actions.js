@@ -47,5 +47,11 @@ module.exports = {
 
   destroySession: function() {
     ApiUtil.destroySession();
+  },
+
+  // USER DETAIL
+
+  fetchAllPostsByUser: function(id) {
+    ApiUtil.fetchAllPostsbyUser(id);
   }
 };
