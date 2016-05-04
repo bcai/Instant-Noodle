@@ -349,7 +349,7 @@ ul {
   font-weight: 500;
 }
 .post p {
-  padding: 20px 25px 12px 25px;
+  padding: 10px 25px 5px 25px;
   font-size: 14px;
 }
 
@@ -361,6 +361,15 @@ ul {
 }
 
 /* COMMENTS */
+
+.post-bottom li:first-child {
+  float: left;
+  width: 11.5%;
+}
+.post-bottom li:last-child {
+  float: left;
+  width: 84%
+}
 .comment {
   -moz-transition: all .15s ease-in;
   -o-transition: all .15s ease-in;
@@ -407,13 +416,28 @@ button.deletable:focus{
 }
 .comment-form input {
   border: none;
-  width:70%;
-  margin-left:50px;
+  width:87%;
+  margin-left:5px;
   padding: 10px;
   font-weight: 400;
   font-family: "Helvetica-Neue", sans-serif;
   font-size: 14px;
   color: black;
+}
+
+
+/* LIKES */
+
+.like-counter-wrapper {
+  margin: 18px 0 0 25px;
+  color: #4b4f54;
+  font-size: 15px;
+}
+.like-button {
+  margin: 12px;
+  padding: 16px;
+  background-color: white;
+  border: none;
 }
 
 

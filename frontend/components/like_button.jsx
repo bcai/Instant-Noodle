@@ -36,13 +36,15 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var buttonText = "Like"
+    var buttonIcon = "&#128420";
     if (this.state.isLiked){
-      buttonText = "Unlike";
+      buttonIcon = "";
     }
     return (
-      <div className="like-button">
-        <button onClick={this.changeLike}>{buttonText}</button>
+      <div>
+        <button className="like-button" onClick={this.changeLike}>
+          {buttonIcon}
+        </button>
       </div>
     );
   }

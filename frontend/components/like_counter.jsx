@@ -26,7 +26,7 @@ module.exports = React.createClass({
 
     var likes = this.state.likes
     if (this.state.likes < 1){
-      likes = "Be the first to like this";
+      likes = "Be the first to like this.";
     } else {
       likes = likes + likeText;
     }

@@ -78,13 +78,15 @@ module.exports = React.createClass({
           <span><a href="#">{post.author.username}</a></span>  
           {post.description}
         </p>
-        <div>
+        <div className="comment-section group">
           <CommentIndex postId={post.id}/>
           <hr/>
-          <LikeButton postId={post.id}/>
-          <CommentForm postId={post.id}/>
+          <ul className="post-bottom">
+            <li><LikeButton postId={post.id}/></li>
+            <li><CommentForm postId={post.id}/></li>
+          </ul>
         </div>
-        <br/><br/>
+
 
         <Modal className="modal" onRequestClose={this.closeModal} isOpen={this.state.showForm}>
           <PostEdit postId={post.id} callback={this.closeModal}/>
