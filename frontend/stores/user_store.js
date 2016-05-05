@@ -12,21 +12,37 @@ var resetUser = function (user) {
   _user = {};
   _user = user;
   UserStore.__emitChange();
-}
+};
 
 UserStore.user = function () {
   return _user;
-}
+};
 
-// var resetAllUsers = function (users) {
-//   _users = {};
-// }
+var resetAllUsers = function (users) {
+  _allUsers = {};
+  users.forEach(function(user){
+    _allUsers[user.id] = user;
+  });
+};
 
 UserStore.allUsers = function () {
   return Object.keys(_allUsers).map(function(userId){
     return _allUsers[userId];
   });
-}
+};
+
+UserStore.search = function(searchString) {
+  if(searchString.length === 0){
+    return [];
+  }
+  var usersArray = UserStore.allUsers();
+
+  return usersArray.filter(function(user){
+    var userName = user.username;
+    return ((userName.toLowerCase()).indexOf(searchString.toLowerCase()) > -1);
+  }).splice(0,5);
+
+};
 
 
 UserStore.__onDispatch = function (payload) {

@@ -62,5 +62,14 @@ module.exports = {
       actionType: UserConstants.USER_RECEIVED,
       user: user
     })
+  },
+
+  // USER SEARCH
+
+  receiveAllUsers: function (users) {
+    AppDispatcher.dispatch({
+      actionType: UserConstants.USERS_RECEIVED,
+      users: users
+    })
   }
 };

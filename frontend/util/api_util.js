@@ -114,6 +114,19 @@ module.exports = {
   },
 
 
+  // USER SEARCH 
+
+  fetchAllUsers: function() {
+    $.ajax({
+      type: 'GET',
+      url: "/users",
+      success: function(users){
+        ServerActions.receiveAllUsers(users);
+      }
+    });
+  },
+
+
   // LOGOUT
 
   destroySession: function(){

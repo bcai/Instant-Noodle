@@ -10,7 +10,8 @@ var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 var ClientActions = require('./actions/client_actions.js'),
     PostIndex = require('./components/post_index.jsx'),
-    UserDetail =require('./components/user_detail.jsx');
+    UserDetail = require('./components/user_detail.jsx'),
+    UserSearch = require('./components/search_index.jsx');
 
 var App = React.createClass({
   render: function() {
@@ -29,6 +30,9 @@ var App = React.createClass({
               </div>
 
               <ul className="header-nav-menu-list">
+                <li className="header-list-item=search">
+                  <UserSearch />
+                </li>
                 <li className="header-list-item-user">
                   <Link to={"/users/" + currentUserId}>{window.currentUserName}</Link>
                 </li>

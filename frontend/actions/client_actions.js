@@ -54,6 +54,12 @@ module.exports = {
   },
 
 
+  // USER SEARCH
+
+  fetchAllUsers: function() {
+    ApiUtil.fetchAllUsers();
+  },
+
   // LOGOUT
 
   destroySession: function() {
