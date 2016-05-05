@@ -40,14 +40,14 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var buttonIcon = <p>&#128420;</p>;
+    var heart = <img src="/assets/empty_heart.png"/>;
     if (this.state.isLiked){
-      buttonIcon = "";
+      heart = <img src="/assets/heart.png"/>;
     }
     return (
       <div>
         <button className="like-button" onClick={this.changeLike}>
-          {buttonIcon}
+          {heart}
         </button>
       </div>
     );

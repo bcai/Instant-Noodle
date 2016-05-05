@@ -2,7 +2,7 @@ var React = require('react');
 var UserStore = require('../stores/user_store.js');
 var ClientActions = require('../actions/client_actions.js');
 var UserSearchItem = require('./search_index_item');
-var Link = require('react-router').Link;
+var HashHistory = require('react-router').hashHistory;
 
 module.exports = React.createClass({
 
@@ -24,6 +24,14 @@ module.exports = React.createClass({
     this.setState({searchString: "", searchResults: []});
   },
 
+  navigateOnEnter: function (event) {
+    event.preventDefault();
+    
+    var firstResult = this.state.searchResults[0].id;
+    HashHistory.push("/users/" + firstResult);
+    this.setState({searchString: "", searchResults: []});
+  },
+
   render: function() {
     var searchResults = this.state.searchResults.map(function(result){
       return (<UserSearchItem key={result.id} userResult={result}/>);
@@ -36,7 +44,7 @@ module.exports = React.createClass({
 
     return (
       <div className="user-search">
-        <form className="search-form">
+        <form className="search-form" onSubmit={this.navigateOnEnter}>
           <input type="text"
                  onChange={this.searchChange}
                  value={this.state.searchString}

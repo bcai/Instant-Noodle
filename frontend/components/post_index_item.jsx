@@ -72,7 +72,7 @@ module.exports = React.createClass({
             {editButton}
           </ul>
         </div>
-        <img src={post.image_url}/>
+        <img className="post-image" src={post.image_url}/>
         <br/>
 
         <LikeCounter postId={post.id}/>
