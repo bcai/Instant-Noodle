@@ -51,6 +51,7 @@ body {
   position: absolute;
   width: 100%;
   min-height: 100%;
+  min-width: 500px;
 }
 
 ul {
@@ -204,6 +205,7 @@ ul {
   display: block;
   height: 100%;
   padding: 20px 0 20px 0;
+  border-bottom: 1px solid #eeefef;
 
   font-family: sans-serif;
 }
@@ -284,13 +286,15 @@ ul {
   flex-direction: column;
   align-items: center;
 
+  max-width: 1440px;
   padding-top: 65px;
+  margin: auto;
 }
 
 .post {
   width: 42%;
-  border: 1px solid lightgrey;
-  border-radius: 2px;
+  border: 1px solid #eeefef;
+  border-radius: 3px;
   margin-bottom: 65px;
 
   background-color: white;
@@ -341,6 +345,8 @@ ul {
 }
 .post img{
   width: 100%;
+  border-top: 1px solid #eeefef;
+  border-bottom: 1px solid #eeefef;
 }
 .post p span{
   margin-right: 5px;
