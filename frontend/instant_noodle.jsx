@@ -5,6 +5,7 @@ var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
 var HashHistory = require('react-router').hashHistory;
+var Link = require('react-router').Link;
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 var ClientActions = require('./actions/client_actions.js'),
@@ -29,7 +30,7 @@ var App = React.createClass({
 
               <ul className="header-nav-menu-list">
                 <li className="header-list-item-user">
-                  <a href="#">{window.currentUserName}</a>
+                  <Link to={"/users/" + currentUserId}>{window.currentUserName}</Link>
                 </li>
 
                 <li className="header-list-item-sign-out">
