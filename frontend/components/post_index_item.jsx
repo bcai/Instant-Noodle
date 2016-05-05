@@ -46,6 +46,8 @@ module.exports = React.createClass({
         age = age.replace(" hours", "h");
       } else if (age.indexOf(" hour") !== -1){
         age = age.replace(" hour", "h");
+      } else if (age.indexOf(" days") !== -1){
+        age = age.replace(" days", "d");
       } else if (age.indexOf(" day") !== -1){
         age = age.replace(" day", "d");
       } else if (age.indexOf(" minutes") !== -1){

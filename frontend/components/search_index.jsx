@@ -10,28 +10,24 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function() {
-    this.searchListener = UserStore.addListener(this._onChange);
     ClientActions.fetchAllUsers();
-  },
-
-  _onChange: function() {
-    this.setState({searchResults: UserStore.allUsers()});
   },
 
   searchChange: function(event) {
     var newSearch = event.target.value;
-    this.setState({searchString: newSearch, 
+    this.setState({searchString: newSearch,
                    searchResults: UserStore.search(newSearch)});
-  },
-
-  componentWillUnmount: function() {
-    this.searchListener.remove();
   },
 
   render: function() {
     var searchResults = this.state.searchResults.map(function(result){
       return (<UserSearchItem key={result.id} userResult={result}/>);
     });
+
+    var showResults="user-search-index";
+    if(searchResults.length > 0){
+      showResults = "user-search-index show-results";
+    }
 
     return (
       <div className="user-search">
@@ -41,7 +37,7 @@ module.exports = React.createClass({
                  value={this.state.searchString}
                  placeholder="Search"/>
         </form> 
-        <ul className="user-search-index">
+        <ul className={showResults}>
           {searchResults}
         </ul>
       </div>

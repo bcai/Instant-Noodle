@@ -18,21 +18,19 @@ var App = React.createClass({
     return (
       <div className="main-wrapper">
         <header className="header">
-          <nav className="header-nav group">
+          <nav className="header-nav">
 
-            <div className="header-nav-logo group">
+            <div className="header-nav-logo">
               <a href="/"><img src="/assets/logo.png"/></a>
             </div>
 
-            <div className="header-nav-menu group">
-              <div className="header-menu-search">
+            <div className="header-menu-search">
+              <UserSearch />
+            </div>
 
-              </div>
+            <div className="header-nav-menu">
 
               <ul className="header-nav-menu-list">
-                <li className="header-list-item=search">
-                  <UserSearch />
-                </li>
                 <li className="header-list-item-user">
                   <Link to={"/users/" + currentUserId}>{window.currentUserName}</Link>
                 </li>

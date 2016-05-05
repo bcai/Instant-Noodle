@@ -32,7 +32,7 @@ UserStore.allUsers = function () {
 };
 
 UserStore.search = function(searchString) {
-  if(searchString.length === 0){
+  if(searchString.length < 1){
     return [];
   }
   var usersArray = UserStore.allUsers();

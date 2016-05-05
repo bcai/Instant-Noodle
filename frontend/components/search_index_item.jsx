@@ -7,9 +7,11 @@ module.exports = React.createClass({
     var user = this.props.userResult;
 
     return (
-      <li>
-        <h3>{user.username}</h3>
-        <p>{user.full_name}</p>
+      <li className="user-search-item">
+        <Link to={"/users/" + user.id}>
+          <h3>{user.username}</h3>
+          <p>{user.full_name}</p>
+        </Link>
       </li>
     );
   }

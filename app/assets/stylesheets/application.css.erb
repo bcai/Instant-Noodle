@@ -51,7 +51,7 @@ body {
   position: absolute;
   width: 100%;
   min-height: 100%;
-  min-width: 500px;
+  min-width: 700px;
 }
 
 ul {
@@ -209,40 +209,89 @@ ul {
 
   font-family: sans-serif;
 }
-
 .header-nav {
   width: 80%;
   margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
-
-.header-nav-logo {
-  float: left;
-  width: 24%;
-}
-/*.header-nav-logo a{
-  content:url("/assets/logo.png");
-}
-*/
-
 .header-nav-menu {
-  width: 70%;
-  float: right;
-}
-
-.header-nav-menu-list {
-  float: right;
+  padding-left: 69px;
 }
 .header-menu-search {
   width: 20%;
-  float: left;
-  padding-left: 20%;
-
-  /* placeholder text only  - safe for delete */
   text-align: center;
+  margin: 0 auto;
+  margin-bottom: -25px;
+  padding-top: 5px;
 }
+.user-search {
+  position: relative;
+}
+.search-form input {
+  margin: 0;
+  padding: 0 14px;
+  border-radius: 20px;
+  border: 1px solid #e1e3e3;
+  width: 75%;
+  height: 28px;
+  font-size: 13px;
+  font-weight: 300;
+}
+.search-form ::-webkit-input-placeholder {
+   text-align: center;
+}
+.search-form :-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+.search-form ::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+.search-form :-ms-input-placeholder {  
+   text-align: center; 
+}
+.user-search-index {
+  visibility: hidden;
+  /*transition: visibility 1s ease;*/
+  position: absolute;
+  border: 1px solid #e1e3e3;
+  background: white;
+  width: 100%;
+  padding: 1px;
+  top: 42px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 6px lightgray;
+}
+.user-search-item {
+  padding: 9px;
+  border-bottom: 1px solid #e1e3e3;
+}
+.user-search-item:hover{
+  background-color: #fafafa;
+  -moz-transition: all .15s ease-in;
+  -o-transition: all .15s ease-in;
+  -webkit-transition: all .15s ease-in;
+  transition: background .15s ease-in;
+}
+.user-search-item h3 {
+  color: #d31f28;
+  margin-bottom: 3px;
+}
+.user-search-item p {
+  font-size: 14px;
+  color: grey;
+
+}
+.user-search-item:last-child{
+  border-bottom: none;
+}
+.show-results {
+  visibility: visible;
+}
+
 .header-list-item-user {
   float: left;
-  margin: 9px 20px 0 0;
+  margin: 9px 25px 0 0;
   color: #d31f28;
   font-size: 18px;
 }
