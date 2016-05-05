@@ -2,6 +2,7 @@ var React = require('react');
 var UserStore = require('../stores/user_store.js');
 var ClientActions = require('../actions/client_actions.js');
 var UserSearchItem = require('./search_index_item');
+var Link = require('react-router').Link;
 
 module.exports = React.createClass({
 
@@ -17,6 +18,10 @@ module.exports = React.createClass({
     var newSearch = event.target.value;
     this.setState({searchString: newSearch,
                    searchResults: UserStore.search(newSearch)});
+  },
+
+  resetIndex: function(event) {
+    this.setState({searchString: "", searchResults: []});
   },
 
   render: function() {
@@ -37,7 +42,7 @@ module.exports = React.createClass({
                  value={this.state.searchString}
                  placeholder="Search"/>
         </form> 
-        <ul className={showResults}>
+        <ul className={showResults} onClick={this.resetIndex}>
           {searchResults}
         </ul>
       </div>
