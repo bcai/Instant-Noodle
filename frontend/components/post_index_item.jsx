@@ -29,14 +29,6 @@ module.exports = React.createClass({
   render: function () {
     var post = this.props.post;
 
-    var editable = "post";
-
-    if (post.author.id === currentUserId){
-      editable = "post editable"
-      var editButton = <button className="submit-button editable" onClick={this.openEditModal}></button>;
-    } else {
-      var editButton = "";
-    }
 
     if (post.age){
       var age = post.age.replace("about", "");
@@ -61,21 +53,29 @@ module.exports = React.createClass({
       }
     }
 
+    if (post.author.id === currentUserId){
+      var editButton = <button className="submit-button" onClick={this.openEditModal}>Edit Post</button>;
+    } else {
+      var editButton = "";
+    }
+    
     return (
-      <li className={editable}>
+      <li className="post">
         <div className="post-header group">
             <div id="post-author">
               <Link to={"/users/" + post.author.id}>{post.author.username}</Link>
             </div>
           <ul>
             <div id="post-age">{age}</div>
-            {editButton}
           </ul>
         </div>
         <img className="post-image" src={post.image_url}/>
         <br/>
 
-        <LikeCounter postId={post.id}/>
+        <ul className="like-edit-wrapper">
+          <LikeCounter postId={post.id}/>
+          {editButton}
+        </ul>
 
         <p>
           <span>

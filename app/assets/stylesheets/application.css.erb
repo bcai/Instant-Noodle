@@ -370,33 +370,29 @@ ul {
   font-size: 15px;
   font-weight: normal;
 }
-
-.post-header button {
-  position: absolute;
-
-  margin: -21px 0px 0px -3px;
-  float: left;
-  width: 29px;
-  height: 20px;
-  font-weight: normal;
-  color: #d31f28;
-  background-color: white;
-
-
-}
-.post-header button:hover{
-  background-color: #e60c17;
-  transition: all 0.5s ease 0s;
-  color: white;
-}
-.editable {
-  border-radius: 0px;
-  border-top-right-radius: 20px;
-}
 .post-image{
   width: 100%;
   border-top: 1px solid #eeefef;
   border-bottom: 1px solid #eeefef;
+}
+.like-edit-wrapper button {
+
+  margin: -21px 25px 0px 0px;
+  float: right;
+  width: 75px;
+  height: 24px; 
+  font-weight: normal;
+  font-size: 12px;
+  color: #d31f28;
+  border: 1px solid #eeefef;
+  background-color: white;
+
+}
+.like-edit-wrapper button:hover{
+  color: #e60c17;
+  transition: all 0.5s ease 0s;
+  border: 1px solid #e60c17;
+  background-color: white;
 }
 .post p span{
   margin-right: 5px;
@@ -441,15 +437,15 @@ ul {
   background-color: #fbe3e4;
 }
 .comment p {
+  position: relative;
   padding: 5px 50px 5px 25px ; 
+  word-wrap: break-word;
 }
 .deletable {
-  float: right;
+  position:absolute;
+  top:4px;
+  right:16px;
   color: grey;
-  margin-right: -27px;
-  border-radius: 10px;
-}
-.deletable {
   border-radius: 10px;
   background-color: white;
   border: 1px solid lightgrey;
