@@ -41,7 +41,6 @@ UserStore.search = function(searchString) {
     var userName = user.username;
     return ((userName.toLowerCase()).indexOf(searchString.toLowerCase()) > -1);
   }).splice(0,5);
-
 };
 
 
