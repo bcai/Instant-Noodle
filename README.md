@@ -2,7 +2,7 @@
 
 [Instant Noodle live][heroku]
 
-[heroku]: https://www.insta-noodle.com
+[heroku]: http://www.insta-noodle.com
 
 Instant Noodle is a full-stack web application inspired by Instagram.  It utilizes a Ruby on Rails backend with PostgreSQL database, and frontend React.js with a Flux architectural design pattern. 
 
@@ -35,10 +35,10 @@ Creation form modal:
   <PostForm callback={this.closeModal}/>
   <button className="submit-button close-button" onClick={this.closeModal}>Close</button>
 </Modal>
+```
 
 ![post-form]
 
-```
 
 ### Comments
 
