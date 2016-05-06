@@ -39,11 +39,11 @@ module.exports = React.createClass({
                              transitionEnterTimeout={300} transitionLeaveTimeout={300}>
         <div className="user-detail-container">
           <div className="user-detail">
-            <div><img src="/assets/cup_noodle.png"/></div>
+            <div className="user-image"><img src="/assets/cup_noodle.png"/></div>
             <div className="user-info">
-              <h2>Username: {this.state.user.username}</h2>
-              <p>Full Name: {this.state.user.full_name}</p>
-              <p>Posts: {posts}</p>
+              <h2>{this.state.user.username}</h2>
+              <h3>{this.state.user.full_name}</h3>
+              <p>Posts: <span>{posts}</span></p>
             </div>
           </div>
 

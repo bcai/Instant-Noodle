@@ -528,7 +528,7 @@ button.deletable:focus{
 
   margin: auto;
   margin-top: 10%;
-  padding: 2em 4em 4em 4em;
+  padding: 2em 4em 2em 4em;
   border: 1px solid lightgrey;
   border-radius: 3px;
 
@@ -611,13 +611,31 @@ button.deletable:focus{
 
 /* USER DETAIL */
 .user-detail {
+  width: 42%;
+  min-width: 450px;
+  margin: auto;
   padding-top: 65px;
   display: flex;
   justify-content: center;
 }
-
+.user-image {
+  margin-right:60px;
+}
 .user-info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 10px 0 10px 0;
+}
+.user-info h2 {
+  font-size: 33px;
+  font-weight: 300;
+}
+.user-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 0px;
+}
+.user-info span {
+  font-weight: 600;
 }
