@@ -7,6 +7,7 @@ var CommentForm = require('./comment_form');
 var LikeCounter = require('./like_counter');
 var LikeButton = require('./like_button');
 var Modal = require('react-modal');
+var PostStore = require('../stores/post_store.js');
 
 module.exports = React.createClass({
   getInitialState: function(){
@@ -73,7 +74,7 @@ module.exports = React.createClass({
         <br/>
 
         <ul className="like-edit-wrapper">
-          <LikeCounter postId={post.id}/>
+          <LikeCounter postId={post.id} likeCount={post.likes.length}/>
           {editButton}
         </ul>
 
@@ -84,10 +85,10 @@ module.exports = React.createClass({
           {post.description}
         </p>
         <div className="comment-section group">
-          <CommentIndex postId={post.id}/>
+          <CommentIndex comments={post.comments}/>
           <hr/>
           <ul className="post-bottom">
-            <li><LikeButton postId={post.id}/></li>
+            <li><LikeButton postId={post.id} isLiked={PostStore.isLiked(post.id, currentUserId)}/></li>
             <li><CommentForm postId={post.id}/></li>
           </ul>
         </div>

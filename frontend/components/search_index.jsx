@@ -27,6 +27,9 @@ module.exports = React.createClass({
   navigateOnEnter: function (event) {
     event.preventDefault();
     
+    if (this.state.searchResults.length === 0)
+      return;
+    
     var firstResult = this.state.searchResults[0].id;
     HashHistory.push("/users/" + firstResult);
     this.setState({searchString: "", searchResults: []});

@@ -9,7 +9,7 @@ var Modal = require('react-modal');
 module.exports = React.createClass({
 
   getInitialState: function () {
-    return {indexCount: 5, showForm: false };
+    return {posts: [], indexCount: 5, showForm: false };
   },
 
   componentWillMount: function(){

@@ -8,8 +8,6 @@ var _posts = {};
 
 
 
-
-
 // POSTS
 
 var resetPosts = function (posts) {

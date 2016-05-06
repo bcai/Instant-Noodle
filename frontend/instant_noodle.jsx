@@ -52,9 +52,6 @@ var App = React.createClass({
     );
   }
 });
-    
-// consider adding show pages for posts
-// <Route path="posts/:postId" component={PostShow} />
 
 var routes = (
   <Route path="/" component={App}>

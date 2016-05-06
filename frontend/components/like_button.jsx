@@ -4,31 +4,15 @@ var ClientActions = require('../actions/client_actions.js');
 
 module.exports = React.createClass({
 
-  getInitialState: function() {
-    return { isLiked: PostStore.isLiked(this.props.postId, currentUserId) };
-  },
-
-  componentDidMount: function() {
-    this.likeButtonListener = PostStore.addListener(this._onChange);
-  },
-
   removeLike: function(id){
     var like = PostStore.likeId(this.props.postId, currentUserId);
     ClientActions.deleteLike(like);
   },
 
-  componentWillUnmount: function() {
-    this.likeButtonListener.remove();
-  },
-
-  _onChange: function() {
-    this.setState({ isLiked: PostStore.isLiked(this.props.postId, currentUserId) });
-  },
-
   changeLike: function(event) {
     event.preventDefault();
 
-    if (this.state.isLiked){
+    if (this.props.isLiked){
       ClientActions.deleteLike(PostStore.likeId(this.props.postId, currentUserId));
     } else {
       var likeData = {
@@ -41,7 +25,7 @@ module.exports = React.createClass({
 
   render: function() {
     var heart = <img src="/assets/empty_heart.png"/>;
-    if (this.state.isLiked){
+    if (this.props.isLiked){
       heart = <img src="/assets/heart.png"/>;
     }
     return (
