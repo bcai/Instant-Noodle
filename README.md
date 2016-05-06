@@ -1,151 +1,151 @@
 # Instant Noodle
 
-Heroku Link: [Instant Noodle][heroku]
+[Instant Noodle live][heroku]
 
-[heroku]: https://instant-noodle.herokuapp.com
+[heroku]: https://www.insta-noodle.com
 
-## Minimum Viable Product
+Instant Noodle is a full-stack web application inspired by Instagram.  It utilizes a Ruby on Rails backend with PostgreSQL database, and frontend React.js with a Flux architectural design pattern. 
 
-Instant Noodle is a web application inspired by Instagram that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+## Features & Implementation
 
-- [ ] New account creation, login, and guest/demo login
-- [ ] Smooth, bug-free navigation
-- [ ] Adequate seed data to demonstrate the site's features
-- [ ] Minimally necessary features for an Instagram-inspired site: photo sharing, posts organized into collections, and social interaction through viewing, commenting, and liking posts.
-- [ ] Hosting on Heroku
-- [ ] CSS styling that is satisfactorily visually appealing
-- [ ] A production README
+### Dynamic Page Rendering
 
-## Product Goals and Priorities
+Instant Noodle is an application that operates mainly on delivering content through a single static page source. Authentication is served through static Rails backend HTML. However, all other components are served through frontend React.js components. The root page listens to a `PostStore` to render posts on the homepage. A 'UserStore' is also used to render User Profile views to the user.
 
-Instant Noodle will allow users to do the following:
+### Authentication
 
-<!-- This is a Markdown checklist. Use it to keep track of your
-progress. Put an x between the brackets for a checkmark: [x] -->
+User accounts and sessions are managed on the Rails backend. Account creation uses BCrypt to safely encrypt and store user passwords as digests in the database for future authentication.  With a session cookie, a user session can be created and destroyed by simply comparing unique session hashes that are stored on both client and server ends. 
 
-- [x] Create an account (MVP)
-- [X] Log in / Log out, including as a Guest/Demo User (MVP)
-- [X] Create, edit, and delete posts (MVP)
-- [X] Organize posts into collections (MVP)
-- [ ] View, comment, and like other users' posts (MVP)
-- [ ] Edit Profile (expected feature, not MVP)
-- [ ] Optional Recipe Form (bonus feature, not MVP)
-- [ ] Upload videos (bonus feature, not MVP)
-- [ ] Geolocation (bonus feature, not MVP)
+### Post Index
 
-## Design Docs
-* [View Wireframes][views]
-* [React Components][components]
-* [Flux Cycles][flux-cycles]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
+On the Rails backend, Posts are stored in a post table that contains a post `description`, `author_id` and an `image_url`. A post also consists of comments and likes. Before the homepage is rendered, an API call is made to the database which joins the post table with the like and comment tables to fetch data with the post. On success, JSON data of the posts are sent back to be stored in the `PostStore` to be stored for component rendering.
 
-[views]: ./docs/views.md
-[components]: ./docs/components.md
-[flux-cycles]: ./docs/flux-cycles.md
-[api-endpoints]: ./docs/api-endpoints.md
-[schema]: ./docs/schema.md
+On the frontend, posts are rendered in a `PostIndex` component with each post represented by a nested `PostIndexItem` component. 
 
-## Implementation Timeline
+![post-index]
 
-### Phase 1: Backend setup and User Authentication (0.5 days)
+### Post Creation and Editing
 
-**Objective:** Functioning rails project with Authentication
+Post creation and editing makes use of React-modals to display a form for the user to fill out. With a simple click of the create or edit button, an overlayed form is displayed. Image creation makes use of Cloudinary CDN to store images and provides a link that is stored in the database for retrieval and display on the frontend. A simple description is also provided for the user in the form input.
 
-- [x] create new project
-- [x] create `User` model
-- [x] authentication
-- [x] user signup/signin pages
-- [x] blank landing page after signin
+Creation form modal:
 
-### Phase 2: Posts Model, API, and basic APIUtil (1.5 days)
+```javascript
+<Modal className="modal" onRequestClose={this.closeModal} isOpen={this.state.showForm}>
+  <PostForm callback={this.closeModal}/>
+  <button className="submit-button close-button" onClick={this.closeModal}>Close</button>
+</Modal>
 
-**Objective:** Posts can be created, read, edited and destroyed through
-the API.
+![post-form]
 
-- [x] create `Post` model
-- [x] seed the database with a small amount of test data
-- [x] CRUD API for Posts (`PostsController`)
-- [x] jBuilder views for posts
-- [x] setup Webpack & Flux scaffold
-- [x] setup `APIUtil` to interact with the API
-- [x] test out API interaction in the console.
+```
 
-### Phase 3: Flux Architecture and Router (1.5 days)
+### Comments
 
-**Objective:** Posts can be created, read, edited and destroyed with the
-user interface.
+A comments join table contains a `body`, `user_id`, and `post_id` columns, which stores the comment text, the user who made the comment and the post that the comment is associated with.
 
-- [x] setup the flux loop with skeleton files
-- [x] setup React Router
-- implement each post component, building out the flux loop as needed.
-  - [x] `PostsIndex`
-  - [x] `PostIndexItem`
-  - [X] `PostForm`
-  - [X] `PostEdit` Modal
+The React component structure for notebooks mirrored that of notes: the `CommentsIndex` component renders a list of `CommentIndexItem`s as subcomponents. 
 
-### Phase 4: Start Styling (1 days)
+`Comment` render method:
 
-**Objective:** Existing pages (including sign-up/sign-in) will look good.
+```javascript
+render: function() {
+  var comment = this.props.comment;
+  if (comment.user.id === currentUserId){
+    var deleteButton = (<button className="deletable" onClick={this.removeComment}>X</button>);
+  } else {
+    var deleteButton = "";
+  }
 
-- [X] Sign In/Up pages
-  - [X] create a basic style guide
-  - [X] position elements on the page
-  - [X] add basic colors & styles
-- [X] Post Index page
-  - [X] create a basic style guide
-  - [X] position elements on the page
-  - [X] add basic colors & styles
-  - [X] navbar
-  - [ ] footer
+  return (
+    <li className="comment">
+      <p>
+        <span id="comment-author">
+          <Link to={"/users/" + comment.user.id}>{comment.user.username}</Link>
+        </span>
+        {comment.body}
+        {deleteButton}
+      </p>
+    </li>
+  );
+}
+```
 
-### Phase 5: Comments (1 day)
+### Likes
 
-**Objective:** Comments belong to Posts, and can be viewed in PostsIndex.
+As with comments, likes are also stored in the database under a like join table which contains `user_id` of the user who liked the post and the `post_id`.
 
-- [X] create `Comments` model
-- build out API, Flux loop, and components for:
-  - [X] Comment CRUD
-  - [X] Comment Form is available in all posts.
-- [X] Style comment components
+On the frontend, a nested `LikeCounter` component displays the number of likes a post contains. A `LikeButton` renders a heart that serves as a button for users to 'like' or 'unlike' posts.
 
-### Phase 6: Likes (1 days)
+`LikeCounter` render method:
 
-**Objective:** Posts can be liked by other followers.
+```javascript
+render: function() {
+  var likeText = " likes";
+  if (this.props.likeCount === 1){
+    likeText = likeText.slice(0,5);
+  }
 
-- [X] create `Likes` model
-- build out API, Flux loop, and components for:
-  - [X] Like CRUD
-  - [X] Liking a post requires a logged-in "follower"
-  - [X] Like Button is available in all posts.
-- [ ] Style new elements
+  var likes = this.props.likeCount
+  if (this.props.likeCount < 1){
+    likes = "Be the first to like this.";
+  } else {
+    likes = likes + likeText;
+  }
 
-### Phase 7: Create User Detail/Form Components (1.5 days)
+  return (
+    <div className="like-counter-wrapper">
+      <span>{likes}</span>
+    </div>
+  );
+}
+```
 
-**objective:** Enable stats for user as well as user posts to be displayed
+### User Profile
 
-- [ ] Display username, full name, counts for posts
-- [ ] Filter posts to only display user's own posts.
-- [ ] CSS Styling
+A `UserDetail` component uses the `UserStore` to fetch and display `username`, `full_name` from the user table in the database as well as the number of posts the user has authored. Below the `UserDetail` component a `PostIndex` component is nested to display only posts the user has authored.
 
-### Phase 8: Styling Cleanup and Seeding (1 day)
-
-**objective:** Make the site feel more cohesive and presentable.
-
-- [ ] Get feedback on my UI from others
-- [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals, transitions, and other styling flourishes.
-
-### Phase 9: Followers (1 days)
-- [ ] setup `follows` join table 
-- [ ] create relationship between user and other users
+![user-detail]
 
 
-### Bonus Features (TBD)
-- [ ] User Search
-- [ ] Optional Recipe Form
-- [ ] Upload videos
-- [ ] Geolocation
+### User Search
 
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
+User search is implemented in the UserStore using JavaScript's #filter method to filter through an array of all users based on whether the user's username is contained in the the search string that is being input by a user performing the search.
+
+`UserStore.search` function: 
+
+```javascript
+UserStore.search = function(searchString) {
+  if(searchString.length < 1){
+    return [];
+  }
+  var usersArray = UserStore.allUsers();
+
+  return usersArray.filter(function(user){
+    var userName = user.username;
+    return ((userName.toLowerCase()).indexOf(searchString.toLowerCase()) > -1);
+  }).splice(0,5);
+};
+```
+On the frontend, the `UserSearch` component is displayed as a searchbar in the navigation bar of the webpage. Typing into the form will cause a dropdown of results to display.
+
+![user-search]
+
+
+## Future Directions for the Project
+
+In addition to the features already implemented, I plan to continue work on this project.  The next steps for Instant Noodle are outlined below.
+
+### Follow
+
+Following other users can provided a much more filtered homepage that displays posts relevant to the users that the current user would prefer to see. A highly useful feature for a social media site such as Instant Noodle.
+
+### Tags
+
+To be able to filter posts by tags would be very useful to find posts relevant to a certain topic but which applies to all user posts as well on the site. Tags can be applied in comments with hashtags and display relevant post results when entered into the search bar.
+
+
+[post-index]: ./docs/post_index.png
+[post-form]: ./docs/post_form.png
+[user-search]: ./docs/user_search.png
+[user-detail]: ./docs/user_detail.png
