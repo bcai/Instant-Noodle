@@ -8,7 +8,7 @@ var Modal = require('react-modal');
 
 module.exports = React.createClass({
   getInitialState: function () {
-    return { posts: [], showForm: false };
+    return { posts: [], indexCount: 5, showForm: false };
   },
 
   componentWillMount: function(){
@@ -21,14 +21,21 @@ module.exports = React.createClass({
     if(!this.props.userDetail){
       ClientActions.fetchAllPosts();
     }
+
+    window.addEventListener('scroll', this.handleScroll);
   },
 
   componentWillUnmount: function () {
     this.postListener.remove();
+    window.removeEventListener('scroll', this.handleScroll);
   },
 
   getPostsFromStore: function () {
     this.setState({ posts: PostStore.all() });
+  },
+
+  handleScroll: function(event) {
+    var scrollPos = document.documentElement.scrollTop || document.body.scrollTop
   },
 
   openCreateModal: function (event) {
