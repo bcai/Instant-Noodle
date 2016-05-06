@@ -7,8 +7,9 @@ var PostForm = require('./post_form.jsx');
 var Modal = require('react-modal');
 
 module.exports = React.createClass({
+
   getInitialState: function () {
-    return { posts: [], showForm: false };
+    return {indexCount: 5, showForm: false };
   },
 
   componentWillMount: function(){
@@ -16,19 +17,38 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function () {
-    this.postListener = PostStore.addListener(this.getPostsFromStore);
+    this.postListener = PostStore.addListener(this.onStoreUpdate);
 
     if(!this.props.userDetail){
       ClientActions.fetchAllPosts();
     }
+
+    window.addEventListener('scroll', this.handleScroll);
   },
 
   componentWillUnmount: function () {
     this.postListener.remove();
+    window.removeEventListener('scroll', this.handleScroll);
   },
 
-  getPostsFromStore: function () {
-    this.setState({ posts: PostStore.all() });
+  onStoreUpdate: function() {
+    this.forceUpdate();
+  },
+
+  percentScroll: function(){
+    var html = document.documentElement;
+    var body = document.body;
+    var height = Math.max( body.scrollHeight, body.offsetHeight, 
+                         html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+    var percentage = window.scrollY / (height - window.innerHeight);
+    return percentage;
+  },
+
+  handleScroll: function(event) {
+    if (this.percentScroll() === 1){
+      this.setState({ indexCount: this.state.indexCount + 2});
+    }
   },
 
   openCreateModal: function (event) {
@@ -40,14 +60,14 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    var posts =  this.state.posts.map(function (post) {
+    var posts =  PostStore.getPosts(this.state.indexCount).map(function (post) {
       return (<PostIndexItem key={post.id} post={post}/>);
     });
 
     return (
       <div id="post-index-container">
         <ul className="post-index">
-          {posts.reverse()}
+          {posts}
         </ul>
         <button className="create-button" onClick={this.openCreateModal}>
           <img src="/assets/symbol.png"/>
