@@ -9,7 +9,8 @@ module.exports = React.createClass({
     var potentialPost = PostStore.find(this.props.postId);
     var post = potentialPost ? potentialPost : {};
     return ({ description: post.description, 
-              imageUrl: post.image_url, });
+              imageUrl: post.image_url, 
+              uploadStatus: "" });
   },
 
   componentDidMount: function () {
@@ -21,8 +22,8 @@ module.exports = React.createClass({
     this.postListener.remove();
   },
 
-  changeImage: function (url) {
-    this.setState({ imageUrl: url });
+  changeImage: function (url, filename) {
+    this.setState({ imageUrl: url, uploadStatus: "Image successfully added!"});
   },
 
   changeDescription: function (event) {
@@ -54,14 +55,13 @@ module.exports = React.createClass({
         <h3>Edit Post</h3>
         <form className="post-form" onSubmit={this.handleSubmit}>
 
+          <p>{this.state.uploadStatus}</p>
           <UploadButton addImage={this.changeImage}/>
 
           <textarea
             onChange={this.changeDescription}
             value={this.state.description}
             placeholder="Add a description"/>
-
-          <br/><br/>
 
           <input className="submit-button" 
                  type="submit" 

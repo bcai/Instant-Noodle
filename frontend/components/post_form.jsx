@@ -4,11 +4,11 @@ var UploadButton = require('./upload_button');
 
 module.exports = React.createClass({
   getInitialState: function () {
-    return ({ imageUrl: "", description: "" });
+    return ({ imageUrl: "", description: "", uploadStatus: ""  });
   },
 
-  addImage: function (url) {
-    this.setState({ imageUrl: url });
+  addImage: function (url, filename) {
+    this.setState({ imageUrl: url, uploadStatus: "Image successfully added!" });
   },
 
   addDescription: function (event) {
@@ -34,14 +34,13 @@ module.exports = React.createClass({
         <h3>New Post</h3>
         <form className="post-form" onSubmit={this.handleSubmit}>
 
+          <p>{this.state.uploadStatus}</p>
           <UploadButton addImage={this.addImage}/>
 
           <textarea
             onChange={this.addDescription} 
             value={this.state.description}
             placeholder="Add a description"/>
-
-          <br/><br/>
 
           <input className="submit-button" 
                  type="submit" 

@@ -8,15 +8,15 @@ module.exports = React.createClass({
       window.cloudinary_options,
       function(error, images){
         if (error == null) {
-          var fullUrl = images[0].thumbnail_url;
-          this.props.addImage(fullUrl);
+          var url = images[0].thumbnail_url;
+          this.props.addImage(url);
         }
     }.bind(this));
   },
 
   render: function() {
     return (
-      <button onClick={this.upload}>Upload Image</button>
+      <button onClick={this.upload}>Add Image</button>
     );
   }
 
