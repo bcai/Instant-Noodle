@@ -59,6 +59,18 @@ module.exports = React.createClass({
     } else {
       var editButton = "";
     }
+
+    var description = <section/>;
+    if (post.description !== ""){
+      description = (
+        <p>
+          <span>
+            <Link to={"/users/" + post.author.id}>{post.author.username}</Link>
+          </span>
+          {post.description}
+        </p>
+      );
+    }
     
     return (
       <li className="post">
@@ -78,12 +90,8 @@ module.exports = React.createClass({
           {editButton}
         </ul>
 
-        <p>
-          <span>
-            <Link to={"/users/" + post.author.id}>{post.author.username}</Link>
-          </span>  
-          {post.description}
-        </p>
+        {description}
+
         <div className="comment-section group">
           <CommentIndex comments={post.comments}/>
           <hr/>
