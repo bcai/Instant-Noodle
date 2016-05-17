@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   if(root){
     ReactDOM.render(
-      <Router history={HashHistory}>{routes}</Router>,
+      <Router onUpdate={() => window.scrollTo(0, 0)} history={HashHistory}>{routes}</Router>,
       root
     );
   }
