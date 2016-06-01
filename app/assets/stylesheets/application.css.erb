@@ -525,7 +525,7 @@ button.deletable:focus{
   opacity: 0;
 }
 
-/* EDIT POST */
+/* CREATE & EDIT POST */
 
 .modal {
   font-family: "Roboto", "Helvetica Neue", sans-serif;
@@ -537,12 +537,21 @@ button.deletable:focus{
   height: 400px;
 
   margin: auto;
-  margin-top: 10%;
+  margin-top: -466px;
   padding: 2em 4em 2em 4em;
   border: 1px solid lightgrey;
   border-radius: 3px;
 
   background-color: white;
+
+  -webkit-transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
+  -ms-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+}
+.modal-appear {
+  margin-top: 130px;
 }
 .modal-form-wrapper {
   display: flex;

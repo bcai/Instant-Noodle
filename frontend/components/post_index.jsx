@@ -52,11 +52,14 @@ module.exports = React.createClass({
   },
 
   openCreateModal: function (event) {
-    this.setState({showForm: true});
+    this.setState({showForm: true}, function(){
+      $('.modal').addClass('modal-appear');
+    });
   },
 
   closeModal: function() {
-    this.setState({showForm: false});
+    $('.modal').removeClass('modal-appear');
+    window.setTimeout(this.setState.bind(this,{showForm: false}),900);
   },
 
   render: function () {
