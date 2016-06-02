@@ -1,6 +1,6 @@
 class Api::LikesController < ApplicationController
   def create
-      @like = Like.new(like_params)
+    @like = Like.new(like_params)
     if @like.save
       render :show
     else
