@@ -3,7 +3,22 @@ class Api::PostsController < ApplicationController
 
   def index
     if (params[:user_id])
-      @posts = Post.where(user_id: params[:user_id]).includes(:author, comments: :user, likes: :user)
+      # @posts = Post.joins(:follows).where("author_id = post_author_id or author_id = followers.follower_id",{post_author_id: params[:user_id]}).includes(:author, comments: :user, likes: :user)
+      @posts = Post.find_by_sql
+      ["SELECT
+          p.*
+       FROM
+          posts p 
+       JOIN
+         (SELECT
+            f2.*
+         FROM 
+            follows f2
+         WHERE
+            user_id = ?)
+       ON
+         p.author_id = f2.user_id OR p.author_id = f2.follower_id", params[:user_id] ]
+
     else
       @posts = Post.includes(:author, comments: :user, likes: :user)
     end
