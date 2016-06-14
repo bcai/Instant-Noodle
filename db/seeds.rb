@@ -328,3 +328,42 @@ Like.create([
   {post_id: 1, user_id: 17}
   
 ])
+
+Follow.create([
+  {user_id: 2, follower_id: 1},
+  {user_id: 3, follower_id: 1},
+  {user_id: 4, follower_id: 1},
+  {user_id: 5, follower_id: 1},
+  {user_id: 6, follower_id: 1},
+  {user_id: 7, follower_id: 1},
+  {user_id: 8, follower_id: 1},
+  {user_id: 9, follower_id: 1},
+  {user_id: 10, follower_id: 1},
+  {user_id: 11, follower_id: 1},
+  {user_id: 12, follower_id: 1},
+  {user_id: 13, follower_id: 1},
+  {user_id: 14, follower_id: 1},
+  {user_id: 15, follower_id: 1},
+  {user_id: 16, follower_id: 1},
+  {user_id: 17, follower_id: 1},
+  {user_id: 18, follower_id: 1},
+  {user_id: 19, follower_id: 1},
+  {user_id: 20, follower_id: 1},
+
+
+  {user_id: 1, follower_id: 2}, 
+  {user_id: 3, follower_id: 2}, 
+  {user_id: 4, follower_id: 2}, 
+  {user_id: 5, follower_id: 2},
+  {user_id: 6, follower_id: 2}, 
+  {user_id: 7, follower_id: 2},
+
+  {user_id: 1, follower_id: 3},
+  {user_id: 2, follower_id: 3},
+  {user_id: 4, follower_id: 3},
+  {user_id: 5, follower_id: 3},
+
+  {user_id: 1, follower_id: 4},
+  {user_id: 2, follower_id: 4},
+  {user_id: 3, follower_id: 4}
+])
