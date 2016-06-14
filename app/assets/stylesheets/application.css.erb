@@ -665,9 +665,38 @@ button.deletable:focus{
   justify-content: space-between;
   padding: 10px 0 10px 0;
 }
-.user-info h2 {
+#user-info-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+#user-info-header h2 {
   font-size: 33px;
   font-weight: 300;
+}
+#follow-button-container {
+  display: flex;
+  align-items: center;
+  margin-left: 1.5em;
+}
+.follow-button {
+  width: 77px;
+  height: 29px;
+  font-weight: 500;
+  font-size: 15px;
+  color: #d31f28;
+  border: 1px solid #d31f28;
+  border-radius: 4px;
+  background-color: white;
+}
+.follow-button:hover{
+  cursor:pointer;
+}
+.followed {
+  width: 95px;
+  height: 31px;
+  background-color: #d31f28;
+  color: white;
 }
 .user-info h3 {
   font-size: 16px;

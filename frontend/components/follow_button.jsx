@@ -24,15 +24,24 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var followText = "Follow";
+    var follow = "";
     if (this.props.isFollowed){
-      followText = "Following";
-    }
-    return (
-      <div>
-        <button className="follow-button" onClick={this.changeFollow}>
-          {followText}
+      follow = (
+        <button className="follow-button followed" onClick={this.changeFollow}>
+          Following
         </button>
+      );
+    } else {
+      follow = (
+        <button className="follow-button" onClick={this.changeFollow}>
+          Follow
+        </button>
+      );
+    }
+
+    return (
+      <div id="follow-button-container">
+        {follow}
       </div>
     );
   }
