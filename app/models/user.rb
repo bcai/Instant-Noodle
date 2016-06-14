@@ -7,13 +7,13 @@ class User < ActiveRecord::Base
     foreign_key: :author_id,
     class_name: :Post
 
-  has_many :follows,
+  has_many :followers,
     foreign_key: :user_id,
     class_name: :Follow
 
-  has_many :followers,
-    through: :follows,
-    source: :follower
+  has_many :followings,
+    foreign_key: :follower_id,
+    class_name: :Follow
 
   has_many :comments
   has_many :likes

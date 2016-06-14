@@ -54,6 +54,22 @@ module.exports = {
     })
   },
 
+  // FOLLOWS
+
+  receiveFollow: function (follow) {
+    AppDispatcher.dispatch({
+      actionType: UserConstants.FOLLOW_RECEIVED,
+      follow: follow
+    });
+  },
+
+  removeFollow: function (follow) {
+    AppDispatcher.dispatch({
+      actionType: UserConstants.FOLLOW_REMOVED,
+      follow: follow
+    })
+  },
+
 
   // USER DETAIL
 

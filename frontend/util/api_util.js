@@ -100,6 +100,31 @@ module.exports = {
     });
   },
 
+  createFollow: function (data) {
+    $.ajax({
+      type: "POST",
+      url: "api/follows",
+      data: { follow: {
+        user_id: data.user_id,
+        follower_id: data.follower_id } },
+      success: function (follow) {
+        ServerActions.receiveFollow(follow);
+      }
+    });
+  },
+
+  deleteFollow: function (id) {
+    $.ajax({
+      type: "DELETE",
+      url: "api/follows/" + id.toString(),
+      success: function (follow) {
+        ServerActions.removeFollow(follow);
+      }
+    });
+  },
+
+
+
   // USER DETAIL 
 
   fetchUser: function(id) {

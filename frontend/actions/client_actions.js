@@ -42,6 +42,16 @@ module.exports = {
     ApiUtil.deleteLike(id);
   },
 
+  // FOLLOWS
+
+  createFollow: function (data) {
+    ApiUtil.createFollow(data);
+  },
+
+  deleteFollow: function (id) {
+    ApiUtil.deleteFollow(id);
+  },
+
 
   // USER DETAIL
 
@@ -52,7 +62,6 @@ module.exports = {
   fetchAllPostsByUser: function(id) {
     ApiUtil.fetchAllPostsByUser(id);
   },
-
 
   // USER SEARCH
 

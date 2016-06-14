@@ -3,7 +3,6 @@ var UserConstants = require('../constants/user_constants.js');
 var AppDispatcher = require('../dispatcher/dispatcher.js');
 
 var UserStore = new Store(AppDispatcher);
-
 var _user = {};
 var _allUsers = {};
 
@@ -17,6 +16,9 @@ var resetUser = function (user) {
 UserStore.user = function () {
   return _user;
 };
+
+
+// SEARCH
 
 var resetAllUsers = function (users) {
   _allUsers = {};
@@ -44,6 +46,41 @@ UserStore.search = function(searchString) {
 };
 
 
+// FOLLOWS
+
+var setFollow = function (follow) {
+  _user.followers.push(follow);
+  UserStore.__emitChange();
+};
+
+var removeFollow = function (follow) {
+  var followers = _user.followers;
+  var followIndex = followers.findIndex(function(storeFollow){
+    return (storeFollow.id == follow.id);
+  });
+  followers.splice(followIndex,1);
+  UserStore.__emitChange();
+};
+
+UserStore.followId = function (userDetailId, currentId){
+  var followIndex = _user.followers.findIndex(function(storeFollow){
+    return ((storeFollow.user_id == userDetailId) && (storeFollow.follower_id == currentId));
+  })
+
+  return _user.followers[followIndex].id;
+};
+
+UserStore.isFollowed = function(userDetailId, currentId){
+  if (!_user.followers)
+    return false;
+
+  return _user.followers.some(function(follow) {
+    return (follow.user_id == userDetailId && follow.follower_id == currentId);
+  });
+};
+
+
+
 UserStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case UserConstants.USER_RECEIVED:
@@ -51,6 +88,12 @@ UserStore.__onDispatch = function (payload) {
       break;
     case UserConstants.USERS_RECEIVED:
       resetAllUsers(payload.users);
+      break;
+    case UserConstants.FOLLOW_RECEIVED:
+      setFollow(payload.follow);
+      break;
+    case UserConstants.FOLLOW_REMOVED:
+      removeFollow(payload.follow);
       break;
   }
 };

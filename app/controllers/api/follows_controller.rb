@@ -8,7 +8,7 @@ class Api::FollowsController < ApplicationController
     end
   end
 
-  destroy
+  def destroy
     @follow = Follow.find(params[:id])
     @follow.destroy
     render json: @follow, status: 200
