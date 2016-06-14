@@ -25,7 +25,9 @@ module.exports = React.createClass({
 
   render: function() {
     var follow = "";
-    if (this.props.isFollowed){
+    if (this.props.userId === currentUserId){
+      // don't display follow button for current user
+    } else if (this.props.isFollowed){
       follow = (
         <button className="follow-button followed" onClick={this.changeFollow}>
           Following
